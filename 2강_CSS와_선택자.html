@@ -63,11 +63,11 @@
       <li><a href="#m3">웹에서 색상 표현하기</a></li>
       <li><a href="#m4">span·div 태그</a></li>
       <li><a href="#m5">웹 폰트 사용하기</a></li>
+      <li><a href="#m10">선택자(Selector)</a></li>
       <li><a href="#m6">문단(text) 관련 스타일</a></li>
       <li><a href="#m7">목록 스타일</a></li>
       <li><a href="#m8">표(table)를 만드는 태그</a></li>
       <li><a href="#m9">표(table) 스타일</a></li>
-      <li><a href="#m10">선택자(Selector)</a></li>
       <li><a href="#m11">배경(background) 스타일</a></li>
     </ol>
   </nav>
@@ -109,6 +109,8 @@
 
 <span class="cm">&lt;!-- ② 인라인 스타일 (태그 안) --&gt;</span>
 <span class="br">&lt;</span><span class="tg">p</span> <span class="at">style</span>=<span class="st">"color:blue"</span><span class="br">&gt;</span><span class="tx">인라인으로 파랗게</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">제목이 남색이 됩니다.</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">p</span> <span class="at">style</span>=<span class="st">"color: blue;"</span><span class="br">&gt;</span><span class="tx">인라인으로 파랗게</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
         <h1 style="margin:.2em 0;color:navy">제목이 남색이 됩니다</h1>
         <p style="margin:.2em 0;color:blue">인라인으로 파랗게</p>
@@ -124,6 +126,9 @@
         <span class="pr">font-size</span><span class="pn">:</span> <span class="vl">18px</span><span class="pn">;</span>
     <span class="pn">}</span>
 <span class="br">&lt;/</span><span class="tg">style</span><span class="br">&gt;</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">초록색 18px 문단입니다.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
         <p class="muted">여러 속성은 세미콜론으로 구분해 한 중괄호 안에 나열한다.</p>
       </details>
     </div>
@@ -165,6 +170,9 @@
     <span class="pr">font-weight</span><span class="pn">:</span> <span class="vl">bold</span><span class="pn">;</span>
     <span class="pr">color</span><span class="pn">:</span> <span class="vl">#0000ff</span><span class="pn">;</span>
 <span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">큰 파란 제목</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
         <p class="muted"><code>2em</code>은 부모 글자 크기의 2배를 뜻한다(부모가 16px이면 32px).</p>
       </details>
     </div>
@@ -190,19 +198,26 @@
 <span class="sel">.b</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">#ff0000</span><span class="pn">;</span> <span class="pn">}</span>          <span class="cm">/* 16진수 */</span>
 <span class="sel">.c</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">rgb(255,0,0)</span><span class="pn">;</span> <span class="pn">}</span>     <span class="cm">/* rgb */</span>
 <span class="sel">.d</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">rgba(255,0,0,0.4)</span><span class="pn">;</span> <span class="pn">}</span> <span class="cm">/* 40% 불투명 */</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">p</span> <span class="at">class</span>=<span class="st">"a"</span><span class="br">&gt;</span><span class="tx">red</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">p</span> <span class="at">class</span>=<span class="st">"b"</span><span class="br">&gt;</span><span class="tx">#ff0000</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">p</span> <span class="at">class</span>=<span class="st">"c"</span><span class="br">&gt;</span><span class="tx">rgb(255, 0, 0)</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">p</span> <span class="at">class</span>=<span class="st">"d"</span><span class="br">&gt;</span><span class="tx">rgba(255, 0, 0, 0.5)</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
-        <span style="color:red;font-weight:700">red</span> &nbsp;
-        <span style="color:#ff0000;font-weight:700">#ff0000</span> &nbsp;
-        <span style="color:rgb(255,0,0);font-weight:700">rgb(255,0,0)</span> &nbsp;
-        <span style="color:rgba(255,0,0,0.4);font-weight:700">rgba(...,0.4)</span>
-        <div style="margin-top:8px"><span class="swatch" style="background:#ff0000"></span>#ff0000 <span class="swatch" style="background:#00ff00;margin-left:10px"></span>#00ff00 <span class="swatch" style="background:#0000ff;margin-left:10px"></span>#0000ff</div>
+        <p style="margin:.4em 0;color:red">red</p>
+        <p style="margin:.4em 0;color:#ff0000">#ff0000</p>
+        <p style="margin:.4em 0;color:rgb(255,0,0)">rgb(255, 0, 0)</p>
+        <p style="margin:.4em 0;color:rgba(255,0,0,0.5)">rgba(255, 0, 0, 0.5)</p>
       </div>
+      <p class="muted">📌 참고 — <b>class 선택자</b>: 문서 안에서 여러 번 반복할 스타일. <code>.</code>(마침표) 다음에 클래스 이름. 예: <code>.btn</code></p>
     </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
       <h4>실습 3-1. 반투명 색상</h4>
       <p>글자색을 <b>파랑</b>에 불투명도 <b>50%</b>로 지정하세요(rgba 사용).</p>
       <details><summary>정답 보기</summary>
 <pre><span class="sel">p</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">rgba(0, 0, 255, 0.5)</span><span class="pn">;</span> <span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">반투명 파란 글자입니다.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
         <p class="muted">알파값 0.5는 50% 불투명(절반 투명)을 뜻한다. <code>#0000ff</code>는 알파값을 넣을 수 없어 rgba를 쓴다.</p>
       </details>
     </div>
@@ -222,8 +237,13 @@
       </table>
     </div>
     <div class="ex"><div class="lbl">💡 예제</div>
-<pre><span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">이 문장에서 </span><span class="br">&lt;</span><span class="tg">span</span> <span class="at">style</span>=<span class="st">"color:red"</span><span class="br">&gt;</span><span class="tx">이 단어만</span><span class="br">&lt;/</span><span class="tg">span</span><span class="br">&gt;</span><span class="tx"> 빨갛게.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
-<span class="br">&lt;</span><span class="tg">div</span> <span class="at">style</span>=<span class="st">"background:#eef;padding:8px"</span><span class="br">&gt;</span><span class="tx">이 영역 전체가 하나의 박스</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">style</span><span class="br">&gt;</span>
+    <span class="sel">span</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">red</span><span class="pn">;</span> <span class="pn">}</span>
+    <span class="sel">div</span> <span class="pn">{</span> <span class="pr">background</span><span class="pn">:</span> <span class="vl">#eef</span><span class="pn">;</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">8px</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="br">&lt;/</span><span class="tg">style</span><span class="br">&gt;</span>
+
+<span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">이 문장에서 </span><span class="br">&lt;</span><span class="tg">span</span><span class="br">&gt;</span><span class="tx">이 단어만</span><span class="br">&lt;/</span><span class="tg">span</span><span class="br">&gt;</span><span class="tx"> 빨갛게.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">div</span><span class="br">&gt;</span><span class="tx">이 영역 전체가 하나의 박스</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
         <p style="margin:.2em 0">이 문장에서 <span style="color:red">이 단어만</span> 빨갛게.</p>
         <div style="background:#eef;padding:8px;margin-top:6px">이 영역 전체가 하나의 박스</div>
@@ -248,12 +268,82 @@
 
 <span class="cm">/* CSS: 폰트 적용 */</span>
 <span class="sel">body</span> <span class="pn">{</span> <span class="pr">font-family</span><span class="pn">:</span> <span class="vl">"Nanum Gothic", sans-serif</span><span class="pn">;</span> <span class="pn">}</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <div style="font-family:'Nanum Gothic',sans-serif">
+          <h1 style="margin:.2em 0">Web Font</h1>
+          <h3 style="margin:.2em 0">웹 폰트</h3>
+          <p style="margin:.2em 0">구글 웹폰트를 사용합니다.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px">외부 스타일 방식 — HTML(<code>head</code>에서 CSS 파일 연결)</p>
+<pre><span class="cm">&lt;!-- 외부 스타일 --&gt;</span>
+<span class="br">&lt;</span><span class="tg">link</span> <span class="at">rel</span>=<span class="st">"stylesheet"</span> <span class="at">href</span>=<span class="st">"./css/font.css"</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">head</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">h2</span><span class="br">&gt;</span><span class="tx">Web Font</span><span class="br">&lt;/</span><span class="tg">h2</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">h3</span><span class="br">&gt;</span><span class="tx">웹 폰트</span><span class="br">&lt;/</span><span class="tg">h3</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">구글 웹폰트를 사용합니다.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
+      <p class="muted" style="margin-top:10px">css/font.css</p>
+<pre><span class="pr">@import</span> <span class="vl">url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&amp;display=swap')</span><span class="pn">;</span>
+
+<span class="sel">body</span><span class="pn">{</span>
+    <span class="pr">font-family</span><span class="pn">:</span> <span class="vl">'Nanum Gothic', sans-serif</span><span class="pn">;</span>
+<span class="pn">}</span></pre>
+    </div>
+  </section>
+
+  <!-- ===================== M10 ===================== -->
+  <section class="module" id="m10">
+    <h2><span class="num">6</span> 선택자(Selector)</h2>
+    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
+      <li>전체·태그·id·class·그룹 선택자를 구분해 사용할 수 있다.</li>
+      <li>id와 class의 사용 상황 차이를 안다.</li>
+    </ul></div>
+    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
+      <p>스타일 속성을 적용할 대상을 <b>선택자(selector)</b>라고 한다. 태그 하나가 될 수도 있고, 여러 요소를 묶어 별도의 선택자로 지정할 수도 있다.</p>
+      <table>
+        <tr><th style="width:150px">선택자</th><th>설명 · 표기</th></tr>
+        <tr><td><b>전체 선택자</b></td><td>모든 요소에 적용. <code>*</code>(별) 사용. 다른 선택자와 함께 모든 하위 요소에 한꺼번에 적용</td></tr>
+        <tr><td><b>태그 선택자</b></td><td>특정 태그를 사용한 모든 요소에 적용. 예: <code>p { … }</code></td></tr>
+        <tr><td><b>id 선택자</b></td><td>문서 안에서 <b>한 번만</b> 쓰는 스타일. <code>#</code>(샵) 다음에 id 이름. 예: <code>#header</code></td></tr>
+        <tr><td><b>class 선택자</b></td><td>문서 안에서 <b>여러 번 반복</b>할 스타일. <code>.</code>(마침표) 다음에 클래스 이름. 예: <code>.btn</code></td></tr>
+        <tr><td><b>그룹 선택자</b></td><td>같은 스타일을 쓰는 선택자를 <b>쉼표(,)</b>로 나열해 한꺼번에 정의. 예: <code>h1, h2, p</code></td></tr>
+      </table>
+    </div>
+    <div class="ex"><div class="lbl">💡 예제 — selector.css</div>
+<pre><span class="sel">*</span> <span class="pn">{</span> <span class="pr">margin</span><span class="pn">:</span> <span class="vl">0</span><span class="pn">;</span> <span class="pn">}</span>              <span class="cm">/* 전체 선택자 */</span>
+<span class="sel">p</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">gray</span><span class="pn">;</span> <span class="pn">}</span>          <span class="cm">/* 태그 선택자 */</span>
+<span class="sel">#title</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">navy</span><span class="pn">;</span> <span class="pn">}</span>     <span class="cm">/* id: 한 번만 */</span>
+<span class="sel">.warn</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">red</span><span class="pn">;</span> <span class="pn">}</span>       <span class="cm">/* class: 여러 번 */</span>
+<span class="sel">h1</span>, <span class="sel">h2</span> <span class="pn">{</span> <span class="pr">font-family</span><span class="pn">:</span> <span class="vl">궁서</span><span class="pn">;</span> <span class="pn">}</span> <span class="cm">/* 그룹 */</span></pre>
+<pre><span class="cm">&lt;!-- HTML에서 id / class 지정 --&gt;</span>
+<span class="br">&lt;</span><span class="tg">h1</span> <span class="at">id</span>=<span class="st">"title"</span><span class="br">&gt;</span><span class="tx">제목</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">p</span> <span class="at">class</span>=<span class="st">"warn"</span><span class="br">&gt;</span><span class="tx">경고 문구</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <h1 id="title" style="margin:.2em 0;color:navy">제목</h1>
+        <p class="warn" style="margin:.2em 0;color:red">경고 문구</p>
+      </div>
+    </div>
+    <div class="lab"><div class="lbl">✏️ 실습문제</div>
+      <h4>실습 6-1. id와 class 구분</h4>
+      <p>페이지에 한 번만 나오는 로고에는 어떤 선택자를, 여러 버튼에 반복 적용할 스타일에는 어떤 선택자를 쓰는 것이 맞는지 CSS로 보이세요.</p>
+      <details><summary>정답 보기</summary>
+<pre><span class="sel">#logo</span> <span class="pn">{</span> <span class="pr">width</span><span class="pn">:</span> <span class="vl">120px</span><span class="pn">;</span> <span class="pn">}</span>   <span class="cm">/* id: 한 번만 쓰는 로고 */</span>
+<span class="sel">.btn</span> <span class="pn">{</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">8px 16px</span><span class="pn">;</span> <span class="pn">}</span> <span class="cm">/* class: 여러 버튼에 반복 */</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">img</span> <span class="at">src</span>=<span class="st">"images/logo.png"</span> <span class="at">id</span>=<span class="st">"logo"</span> <span class="at">alt</span>=<span class="st">"로고"</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">button</span> <span class="at">class</span>=<span class="st">"btn"</span><span class="br">&gt;</span><span class="tx">확인</span><span class="br">&lt;/</span><span class="tg">button</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">button</span> <span class="at">class</span>=<span class="st">"btn"</span><span class="br">&gt;</span><span class="tx">취소</span><span class="br">&lt;/</span><span class="tg">button</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
+        <p class="muted">id는 문서 안에서 유일해야 하고(<code>#</code>), class는 여러 요소가 공유할 수 있다(<code>.</code>).</p>
+      </details>
     </div>
   </section>
 
   <!-- ===================== M6 ===================== -->
   <section class="module" id="m6">
-    <h2><span class="num">6</span> 문단(text) 관련 스타일</h2>
+    <h2><span class="num">7</span> 문단(text) 관련 스타일</h2>
     <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
       <li>정렬·줄 간격·줄 표시·그림자 등 문단 스타일을 적용할 수 있다.</li>
     </ul></div>
@@ -279,20 +369,23 @@
       </div>
     </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 6-1. 문단 정렬과 줄 간격</h4>
+      <h4>실습 7-1. 문단 정렬과 줄 간격</h4>
       <p><code>&lt;p&gt;</code>를 오른쪽 정렬하고 줄 간격을 글자 크기의 1.8배로 지정하세요.</p>
       <details><summary>정답 보기</summary>
 <pre><span class="sel">p</span> <span class="pn">{</span>
     <span class="pr">text-align</span><span class="pn">:</span> <span class="vl">right</span><span class="pn">;</span>
     <span class="pr">line-height</span><span class="pn">:</span> <span class="vl">1.8</span><span class="pn">;</span>
 <span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">오른쪽으로 정렬되고 줄 간격이 넓은 문단입니다.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
       </details>
     </div>
   </section>
 
   <!-- ===================== M7 ===================== -->
   <section class="module" id="m7">
-    <h2><span class="num">7</span> 목록 스타일</h2>
+    <h2><span class="num">8</span> 목록 스타일</h2>
     <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
       <li><code>list-style-type</code>으로 불릿·번호 모양을 바꿀 수 있다.</li>
     </ul></div>
@@ -309,16 +402,33 @@
     <div class="ex"><div class="lbl">💡 예제 — css_list.html</div>
 <pre><span class="sel">ul</span> <span class="pn">{</span> <span class="pr">list-style-type</span><span class="pn">:</span> <span class="vl">square</span><span class="pn">;</span> <span class="pn">}</span>
 <span class="sel">ol</span> <span class="pn">{</span> <span class="pr">list-style-type</span><span class="pn">:</span> <span class="vl">upper-roman</span><span class="pn">;</span> <span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">ul</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">사각형 불릿</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">두 번째</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">ul</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">ol</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">로마숫자 대문자</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">두 번째</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">ol</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
         <ul style="list-style-type:square;margin:.2em 0"><li>사각형 불릿</li><li>두 번째</li></ul>
         <ol style="list-style-type:upper-roman;margin:.2em 0"><li>로마숫자 대문자</li><li>두 번째</li></ol>
       </div>
     </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 7-1. 불릿 없애기</h4>
+      <h4>실습 8-1. 불릿 없애기</h4>
       <p>메뉴 목록의 불릿을 없애는 CSS를 작성하세요.</p>
       <details><summary>정답 보기</summary>
 <pre><span class="sel">ul</span> <span class="pn">{</span> <span class="pr">list-style-type</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span> <span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">ul</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">홈</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">소개</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">연락처</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">ul</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
         <p class="muted">내비게이션 메뉴를 가로로 배치할 때 <code>none</code>으로 불릿을 없애는 경우가 많다.</p>
       </details>
     </div>
@@ -326,7 +436,7 @@
 
   <!-- ===================== M8 ===================== -->
   <section class="module" id="m8">
-    <h2><span class="num">8</span> 표(table)를 만드는 태그</h2>
+    <h2><span class="num">9</span> 표(table)를 만드는 태그</h2>
     <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
       <li>행·열·셀의 개념과 표 기본 태그를 사용할 수 있다.</li>
       <li>셀 병합·캡션·표 구조 태그를 이해한다.</li>
@@ -369,11 +479,15 @@
       </div>
     </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 8-1. 셀 합치기</h4>
+      <h4>실습 9-1. 셀 합치기</h4>
       <p>맨 윗줄 하나의 셀이 아래 두 열을 모두 덮도록(가로로 합치도록) 만드는 태그를 쓰세요.</p>
       <details><summary>정답 보기</summary>
-<pre><span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span> <span class="at">colspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">제목</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
-<span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">왼쪽</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">오른쪽</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">table</span> <span class="at">border</span>=<span class="st">"1"</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span> <span class="at">colspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">제목</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">왼쪽</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">오른쪽</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">table</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
         <p class="muted">가로 병합은 <code>colspan</code>, 세로 병합은 <code>rowspan</code>이다.</p>
       </details>
     </div>
@@ -381,7 +495,7 @@
 
   <!-- ===================== M9 ===================== -->
   <section class="module" id="m9">
-    <h2><span class="num">9</span> 표(table) 스타일</h2>
+    <h2><span class="num">10</span> 표(table) 스타일</h2>
     <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
       <li>표의 크기·테두리·여백을 CSS로 꾸밀 수 있다.</li>
       <li><code>border-collapse</code>로 테두리선을 하나로 합칠 수 있다.</li>
@@ -408,59 +522,80 @@
       </div>
       <p class="muted" style="margin-top:8px"><code>border-collapse:collapse</code>가 없으면 셀마다 테두리가 두 줄로 겹쳐 보인다.</p>
     </div>
-    <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 9-1. 표 테두리 합치기</h4>
-      <p>표 테두리를 한 줄로 합치고, 모든 셀에 <code>1px</code> 회색 실선 테두리와 <code>8px</code> 안쪽 여백을 지정하세요.</p>
-      <details><summary>정답 보기</summary>
-<pre><span class="sel">table</span> <span class="pn">{</span> <span class="pr">border-collapse</span><span class="pn">:</span> <span class="vl">collapse</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="sel">td</span>, <span class="sel">th</span> <span class="pn">{</span>
-    <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid gray</span><span class="pn">;</span>
-    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">8px</span><span class="pn">;</span>
-<span class="pn">}</span></pre>
-        <p class="muted"><code>td, th</code>처럼 쉼표로 묶으면 두 태그에 같은 스타일을 한 번에 적용한다(그룹 선택자).</p>
-      </details>
+    <div class="concept"><h3 class="blk">&lt;thead&gt; ,&lt;tbody&gt;, &lt;tfoot&gt; — 표 구조 정의</h3>
+      <ul>
+        <li>표의 구조를 <b>제목 부분</b>과 <b>실제 본문</b> 그리고 <b>요약 부분</b>으로 나눈다.</li>
+        <li>시각 장애인도 화면 판독기를 통해 표의 구조를 쉽게 이해할 수 있다.</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- ===================== M10 ===================== -->
-  <section class="module" id="m10">
-    <h2><span class="num">10</span> 선택자(Selector)</h2>
-    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
-      <li>전체·태그·id·class·그룹 선택자를 구분해 사용할 수 있다.</li>
-      <li>id와 class의 사용 상황 차이를 안다.</li>
-    </ul></div>
-    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
-      <p>스타일 속성을 적용할 대상을 <b>선택자(selector)</b>라고 한다. 태그 하나가 될 수도 있고, 여러 요소를 묶어 별도의 선택자로 지정할 수도 있다.</p>
-      <table>
-        <tr><th style="width:150px">선택자</th><th>설명 · 표기</th></tr>
-        <tr><td><b>전체 선택자</b></td><td>모든 요소에 적용. <code>*</code>(별) 사용. 다른 선택자와 함께 모든 하위 요소에 한꺼번에 적용</td></tr>
-        <tr><td><b>태그 선택자</b></td><td>특정 태그를 사용한 모든 요소에 적용. 예: <code>p { … }</code></td></tr>
-        <tr><td><b>id 선택자</b></td><td>문서 안에서 <b>한 번만</b> 쓰는 스타일. <code>#</code>(샵) 다음에 id 이름. 예: <code>#header</code></td></tr>
-        <tr><td><b>class 선택자</b></td><td>문서 안에서 <b>여러 번 반복</b>할 스타일. <code>.</code>(마침표) 다음에 클래스 이름. 예: <code>.btn</code></td></tr>
-        <tr><td><b>그룹 선택자</b></td><td>같은 스타일을 쓰는 선택자를 <b>쉼표(,)</b>로 나열해 한꺼번에 정의. 예: <code>h1, h2, p</code></td></tr>
-      </table>
-    </div>
-    <div class="ex"><div class="lbl">💡 예제 — selector.css</div>
-<pre><span class="sel">*</span> <span class="pn">{</span> <span class="pr">margin</span><span class="pn">:</span> <span class="vl">0</span><span class="pn">;</span> <span class="pn">}</span>              <span class="cm">/* 전체 선택자 */</span>
-<span class="sel">p</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">gray</span><span class="pn">;</span> <span class="pn">}</span>          <span class="cm">/* 태그 선택자 */</span>
-<span class="sel">#title</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">navy</span><span class="pn">;</span> <span class="pn">}</span>     <span class="cm">/* id: 한 번만 */</span>
-<span class="sel">.warn</span> <span class="pn">{</span> <span class="pr">color</span><span class="pn">:</span> <span class="vl">red</span><span class="pn">;</span> <span class="pn">}</span>       <span class="cm">/* class: 여러 번 */</span>
-<span class="sel">h1</span>, <span class="sel">h2</span> <span class="pn">{</span> <span class="pr">font-family</span><span class="pn">:</span> <span class="vl">궁서</span><span class="pn">;</span> <span class="pn">}</span> <span class="cm">/* 그룹 */</span></pre>
-<pre><span class="cm">&lt;!-- HTML에서 id / class 지정 --&gt;</span>
-<span class="br">&lt;</span><span class="tg">h1</span> <span class="at">id</span>=<span class="st">"title"</span><span class="br">&gt;</span><span class="tx">제목</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
-<span class="br">&lt;</span><span class="tg">p</span> <span class="at">class</span>=<span class="st">"warn"</span><span class="br">&gt;</span><span class="tx">경고 문구</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span></pre>
+    <div class="ex"><div class="lbl">💡 예제 — thead·tbody·tfoot</div>
+<pre><span class="br">&lt;</span><span class="tg">table</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">caption</span><span class="br">&gt;</span><span class="tx">월별 저축액</span><span class="br">&lt;/</span><span class="tg">caption</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">thead</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">월별</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">저축액</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">thead</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">tbody</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">8월</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">300000</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">9월</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">400000</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">tbody</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">tfoot</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">합계</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">700000</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">tfoot</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">table</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
-        <h1 id="title" style="margin:.2em 0;color:navy">제목</h1>
-        <p class="warn" style="margin:.2em 0;color:red">경고 문구</p>
+        <table style="border-collapse:collapse;margin-top:6px;text-align:center">
+          <caption style="font-weight:700;text-align:left;padding:4px 2px 8px">월별 저축액</caption>
+          <thead>
+            <tr><th style="border:1px solid #ccc;padding:16px 28px;background:#eaf2fb">월별</th><th style="border:1px solid #ccc;padding:16px 28px;background:#eaf2fb">저축액</th></tr>
+          </thead>
+          <tbody>
+            <tr><td style="border:1px solid #ccc;padding:16px 28px">8월</td><td style="border:1px solid #ccc;padding:16px 28px">300000</td></tr>
+            <tr><td style="border:1px solid #ccc;padding:16px 28px">9월</td><td style="border:1px solid #ccc;padding:16px 28px">400000</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td style="border:1px solid #ccc;padding:16px 28px;background:#ececec">합계</td><td style="border:1px solid #ccc;padding:16px 28px;background:#ececec">700000</td></tr>
+          </tfoot>
+        </table>
       </div>
     </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 10-1. id와 class 구분</h4>
-      <p>페이지에 한 번만 나오는 로고에는 어떤 선택자를, 여러 버튼에 반복 적용할 스타일에는 어떤 선택자를 쓰는 것이 맞는지 CSS로 보이세요.</p>
+      <h4>실습 10-1. 학력 사항 표 만들기</h4>
+      <p>아래 <b>Education(학력 사항)</b> 표를 만드세요. 제목은 <code>&lt;caption&gt;</code>, 머리글은 <code>&lt;thead&gt;</code>, 본문은 <code>&lt;tbody&gt;</code>로 구분하고, 테두리는 한 줄로 합치며 머리글 행에는 회색 배경을 지정하세요.</p>
+      <div class="out"><span class="rt">완성 예시</span>
+        <h1 style="text-align:center;margin:.2em 0">Education</h1>
+        <table style="border-collapse:collapse;margin:6px auto;text-align:center">
+          <caption style="font-weight:700;padding:8px">학력 사항</caption>
+          <thead>
+            <tr><th style="border:1px solid #ccc;padding:12px 18px;background:#ececec">출신학교</th><th style="border:1px solid #ccc;padding:12px 18px;background:#ececec">전공</th><th style="border:1px solid #ccc;padding:12px 18px;background:#ececec">기간</th><th style="border:1px solid #ccc;padding:12px 18px;background:#ececec">구분</th></tr>
+          </thead>
+          <tbody>
+            <tr><td style="border:1px solid #ccc;padding:12px 18px">한강고등학교</td><td style="border:1px solid #ccc;padding:12px 18px">이과</td><td style="border:1px solid #ccc;padding:12px 18px">2008.3 ~ 2010.2</td><td style="border:1px solid #ccc;padding:12px 18px">졸업</td></tr>
+            <tr><td style="border:1px solid #ccc;padding:12px 18px">한강대학교</td><td style="border:1px solid #ccc;padding:12px 18px">소프트웨어학과</td><td style="border:1px solid #ccc;padding:12px 18px">2010.3 ~ 2016.2</td><td style="border:1px solid #ccc;padding:12px 18px">졸업</td></tr>
+          </tbody>
+        </table>
+      </div>
       <details><summary>정답 보기</summary>
-<pre><span class="sel">#logo</span> <span class="pn">{</span> <span class="pr">width</span><span class="pn">:</span> <span class="vl">120px</span><span class="pn">;</span> <span class="pn">}</span>   <span class="cm">/* id: 한 번만 쓰는 로고 */</span>
-<span class="sel">.btn</span> <span class="pn">{</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">8px 16px</span><span class="pn">;</span> <span class="pn">}</span> <span class="cm">/* class: 여러 버튼에 반복 */</span></pre>
-        <p class="muted">id는 문서 안에서 유일해야 하고(<code>#</code>), class는 여러 요소가 공유할 수 있다(<code>.</code>).</p>
+<pre><span class="br">&lt;</span><span class="tg">style</span><span class="br">&gt;</span>
+    <span class="sel">table</span> <span class="pn">{</span> <span class="pr">border-collapse</span><span class="pn">:</span> <span class="vl">collapse</span><span class="pn">;</span> <span class="pn">}</span>
+    <span class="sel">caption</span> <span class="pn">{</span> <span class="pr">font-weight</span><span class="pn">:</span> <span class="vl">bold</span><span class="pn">;</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">8px</span><span class="pn">;</span> <span class="pn">}</span>
+    <span class="sel">th</span>, <span class="sel">td</span> <span class="pn">{</span> <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #ccc</span><span class="pn">;</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">12px 18px</span><span class="pn">;</span> <span class="pn">}</span>
+    <span class="sel">thead th</span> <span class="pn">{</span> <span class="pr">background</span><span class="pn">:</span> <span class="vl">#ececec</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="br">&lt;/</span><span class="tg">style</span><span class="br">&gt;</span>
+
+<span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">Education</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">table</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">caption</span><span class="br">&gt;</span><span class="tx">학력 사항</span><span class="br">&lt;/</span><span class="tg">caption</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">thead</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">출신학교</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">전공</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">기간</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">구분</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">thead</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">tbody</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">한강고등학교</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">이과</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">2008.3 ~ 2010.2</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">졸업</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">한강대학교</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">소프트웨어학과</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">2010.3 ~ 2016.2</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">졸업</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">tbody</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">table</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
+        <p class="muted"><code>thead</code>·<code>tbody</code>로 구조를 나누고, <code>thead th</code> 그룹 선택자로 머리글에만 배경색을 준다.</p>
       </details>
     </div>
   </section>
@@ -508,11 +643,14 @@
     <span class="pr">background-position</span><span class="pn">:</span> <span class="vl">top right</span><span class="pn">;</span>
     <span class="pr">background-size</span><span class="pn">:</span> <span class="vl">cover</span><span class="pn">;</span>
 <span class="pn">}</span></pre>
-      <div class="out"><span class="rt">브라우저 출력 — background-color</span>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <span style="background-color:#00ff00;padding:10px 16px;border-radius:6px">#00ff00</span>
-          <span style="background-color:rgb(0,255,0);padding:10px 16px;border-radius:6px">rgb(0,255,0)</span>
-          <span style="background-color:green;color:#fff;padding:10px 16px;border-radius:6px">green</span>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">배경 이미지 예제</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">body 전체에 배경색과 배경 이미지가 적용됩니다.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <div style="min-height:300px;background-color:#fff;background-image:radial-gradient(circle,#e8532a 3px,transparent 4px),radial-gradient(circle,#2b3a55 4px,transparent 5px),radial-gradient(circle,#cdb8d6 3px,transparent 4px),radial-gradient(circle,#c9ccd1 2px,transparent 3px);background-size:55px 55px,85px 85px,65px 65px,45px 45px;background-position:0 0,25px 30px,40px 10px,15px 45px;border-radius:6px;padding:12px 16px">
+          <h1 style="margin:.2em 0">배경 이미지 예제</h1>
+          <p style="margin:.2em 0">body 전체에 배경색과 배경 이미지가 적용됩니다.</p>
         </div>
       </div>
     </div>
@@ -525,6 +663,10 @@
     <span class="pr">background-repeat</span><span class="pn">:</span> <span class="vl">no-repeat</span><span class="pn">;</span>
     <span class="pr">background-position</span><span class="pn">:</span> <span class="vl">top right</span><span class="pn">;</span>
 <span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">로고 배경</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">오른쪽 위에 로고가 한 번만 표시됩니다.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
         <p class="muted"><code>no-repeat</code>이 없으면 이미지가 화면 전체에 바둑판처럼 반복된다.</p>
       </details>
     </div>
