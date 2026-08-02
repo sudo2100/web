@@ -110,7 +110,6 @@
     <div class="concept"><h3 class="blk">📖 웹 편집기</h3>
       <ul>
         <li>코드 편집기 : <b>비주얼 스튜디오 코드(VS Code)</b>, 브라켓(Brackets), 메모장(Notepad)</li>
-        <li>통합개발환경(IDE) : 비주얼 스튜디오, 서브라임 텍스트</li>
       </ul>
     </div>
     <div class="ex"><div class="lbl">💡 참고 — 최초의 웹 브라우저</div>
@@ -430,9 +429,13 @@
 <pre><span class="cm">&lt;!-- 배경 음악이나 효과음 재생 --&gt;</span>
 <span class="br">&lt;</span><span class="tg">audio</span> <span class="at">src</span>=<span class="st">"sound/bgm.mp3"</span> <span class="at">controls</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">audio</span><span class="br">&gt;</span>
 
-<span class="cm">&lt;!-- 비디오 재생 --&gt;</span>
-<span class="br">&lt;</span><span class="tg">video</span> <span class="at">src</span>=<span class="st">"movie/sample.mp4"</span> <span class="at">width</span>=<span class="st">"400"</span> <span class="at">controls</span> <span class="at">loop</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">video</span><span class="br">&gt;</span></pre>
-      <p class="muted"><code>controls</code>를 넣으면 재생·정지·볼륨 조절 바가 나타난다. 여러 속성은 공백으로 나열한다.</p>
+<span class="cm">&lt;!-- &lt;video src="./medias/salad.mp4" controls width="600"&gt;&lt;/video&gt; --&gt;</span>
+<span class="cm">&lt;!-- 구글 : 소리없이 자동 재생 autoplay muted,</span>
+<span class="cm">     반복재생-loop</span>
+<span class="cm">     동영상 재생이 안될때 사진 표시 - poster --&gt;</span>
+<span class="br">&lt;</span><span class="tg">video</span> <span class="at">src</span>=<span class="st">"./medias/salad.mp4"</span> <span class="at">width</span>=<span class="st">"600"</span>
+    <span class="at">autoplay</span> <span class="at">muted</span> <span class="at">poster</span>=<span class="st">"./medias/salad.PNG"</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">video</span><span class="br">&gt;</span></pre>
+      <p class="muted"><code>autoplay muted</code>를 함께 쓰면 소리 없이 자동 재생된다(구글 정책상 자동 재생은 음소거 필요). <code>loop</code>는 반복 재생, <code>poster</code>는 동영상이 재생되지 않을 때 표시할 이미지다.</p>
     </div>
   </section>
 
@@ -470,11 +473,24 @@
       </table>
       <p class="muted">메인 페이지(<code>main.html</code>)에서 텍스트 태그·목록 태그·이미지 태그·앵커 태그 페이지로 이동하는 메뉴를 <code>&lt;nav&gt;</code> 안에 <code>&lt;a&gt;</code>로 묶어 만든다.</p>
 <pre><span class="br">&lt;</span><span class="tg">nav</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"main.html"</span><span class="br">&gt;</span><span class="tx">홈</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"tag_text.html"</span><span class="br">&gt;</span><span class="tx">텍스트 태그</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"ul-ol-li.html"</span><span class="br">&gt;</span><span class="tx">목록 태그</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"tag_img.html"</span><span class="br">&gt;</span><span class="tx">이미지 태그</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"main.html"</span><span class="br">&gt;</span><span class="tx">Home</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span> |
+    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"text.html"</span><span class="br">&gt;</span><span class="tx">텍스트</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span> |
+    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"list.html"</span><span class="br">&gt;</span><span class="tx">목록</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span> |
+    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"image.html"</span><span class="br">&gt;</span><span class="tx">이미지</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
 <span class="br">&lt;/</span><span class="tg">nav</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <nav style="border-bottom:1px solid #f0d9e2;padding-bottom:8px">
+          <a href="#m10" style="color:#7048e8">Home</a> |
+          <a href="#m10" style="color:#7048e8">텍스트</a> |
+          <a href="#m10" style="color:#7048e8">목록</a> |
+          <a href="#m10" style="color:#7048e8">이미지</a>
+        </nav>
+        <h2 style="margin:.5em 0">웹 기술 기초</h2>
+        <hr>
+        <p style="margin:.4em 0">HTML</p>
+        <p style="margin:.4em 0">CSS</p>
+        <p style="margin:.4em 0">JavaScript</p>
+      </div>
     </div>
     <div class="concept"><h3 class="blk">📖 참고 — 웹 서버(Live Server)와 앵커</h3>
       <ul>
