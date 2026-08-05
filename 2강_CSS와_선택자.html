@@ -116,6 +116,32 @@
         <p style="margin:.2em 0;color:blue">인라인으로 파랗게</p>
       </div>
     </div>
+    <div class="ex"><div class="lbl">💡 예제 — 외부 스타일 시트 (color.css)</div>
+<pre><span class="br">&lt;</span><span class="tg">head</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">meta</span> <span class="at">charset</span>=<span class="st">"UTF-8"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">meta</span> <span class="at">name</span>=<span class="st">"viewport"</span> <span class="at">content</span>=<span class="st">"width=device-width, initial-scale=1.0"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">title</span><span class="br">&gt;</span><span class="tx">텍스트 관련 스타일</span><span class="br">&lt;/</span><span class="tg">title</span><span class="br">&gt;</span>
+    <span class="cm">&lt;!-- 외부 스타일 --&gt;</span>
+    <span class="br">&lt;</span><span class="tg">link</span> <span class="at">rel</span>=<span class="st">"stylesheet"</span> <span class="at">href</span>=<span class="st">"css/color.css"</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">head</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">제목이 남색이 됩니다.</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">외부스타일로 빨갛게</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
+<pre><span class="cm">/* color.css */</span>
+<span class="sel">h1</span><span class="pn">{</span>
+    <span class="pr">color</span><span class="pn">:</span> <span class="vl">navy</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">p</span><span class="pn">{</span>
+    <span class="pr">color</span><span class="pn">:</span> <span class="vl">red</span><span class="pn">;</span>
+    <span class="pr">font-size</span><span class="pn">:</span> <span class="vl">18px</span><span class="pn">;</span>
+<span class="pn">}</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <h1 style="margin:.2em 0;color:navy">제목이 남색이 됩니다.</h1>
+        <p style="margin:.2em 0;color:red;font-size:18px">외부스타일로 빨갛게</p>
+      </div>
+      <p class="muted" style="margin:8px 0 0"><code>&lt;link&gt;</code>로 연결한 <code>color.css</code>의 규칙이 적용되어 제목은 남색, 문단은 빨간색 18px이 된다.</p>
+    </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
       <h4>실습 1-1. 스타일 규칙 작성</h4>
       <p><code>&lt;style&gt;</code> 안에서 모든 <code>&lt;p&gt;</code>의 글자색을 초록(<code>green</code>), 글자 크기를 <code>18px</code>로 지정하세요.</p>
@@ -362,7 +388,12 @@
     <span class="pr">line-height</span><span class="pn">:</span> <span class="vl">2</span><span class="pn">;</span>
     <span class="pr">text-shadow</span><span class="pn">:</span> <span class="vl">2px 2px 3px gray</span><span class="pn">;</span>
 <span class="pn">}</span>
-<span class="sel">a</span> <span class="pn">{</span> <span class="pr">text-decoration</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span> <span class="pn">}</span>  <span class="cm">/* 밑줄 없애기 */</span></pre>
+<span class="sel">a</span> <span class="pn">{</span> <span class="pr">text-decoration</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span> <span class="pn">}</span>  <span class="cm">/* 밑줄 없애기 */</span>
+
+<span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">h1</span> <span class="at">class</span>=<span class="st">"title"</span><span class="br">&gt;</span><span class="tx">가운데 정렬 + 그림자</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">밑줄 없는 링크</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
         <div style="text-align:center;line-height:2;text-shadow:2px 2px 3px gray;font-size:1.3rem;font-weight:700">가운데 정렬 + 그림자</div>
         <div style="margin-top:6px"><a href="#m6" style="text-decoration:none;color:#2965f1">밑줄 없는 링크</a></div>
@@ -451,16 +482,25 @@
         <tr><td><code>&lt;caption&gt;</code></td><td>표 제목(캡션)을 넣는다.</td></tr>
       </table>
     </div>
-    <div class="ex"><div class="lbl">💡 예제 — table-1.html / table-caption.html</div>
+    <div class="ex"><div class="lbl">💡 예제 — table-1.html</div>
 <pre><span class="br">&lt;</span><span class="tg">table</span> <span class="at">border</span>=<span class="st">"1"</span><span class="br">&gt;</span>
     <span class="br">&lt;</span><span class="tg">caption</span><span class="br">&gt;</span><span class="tx">성적표</span><span class="br">&lt;/</span><span class="tg">caption</span><span class="br">&gt;</span>
     <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">과목</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">점수</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
     <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">국어</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">90</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
 <span class="br">&lt;/</span><span class="tg">table</span><span class="br">&gt;</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">style</span><span class="br">&gt;</span>
+    <span class="sel">table th</span><span class="pn">{</span>
+        <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px 20px</span><span class="pn">;</span>
+        <span class="pr">background-color</span><span class="pn">:</span> <span class="vl">rgb(227, 243, 249)</span><span class="pn">;</span>
+    <span class="pn">}</span>
+    <span class="sel">table td</span><span class="pn">{</span>
+        <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px 20px</span><span class="pn">;</span>
+    <span class="pn">}</span>
+<span class="br">&lt;/</span><span class="tg">style</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
         <table style="width:auto;border-collapse:collapse"><caption style="font-weight:700;margin-bottom:4px">성적표</caption>
-          <tr><th style="border:1px solid #333;padding:5px 12px;background:#eef2fb">과목</th><th style="border:1px solid #333;padding:5px 12px;background:#eef2fb">점수</th></tr>
-          <tr><td style="border:1px solid #333;padding:5px 12px">국어</td><td style="border:1px solid #333;padding:5px 12px">90</td></tr>
+          <tr><th style="border:1px solid #333;padding:10px 20px;background:rgb(227,243,249)">과목</th><th style="border:1px solid #333;padding:10px 20px;background:rgb(227,243,249)">점수</th></tr>
+          <tr><td style="border:1px solid #333;padding:10px 20px">국어</td><td style="border:1px solid #333;padding:10px 20px">90</td></tr>
         </table>
       </div>
     </div>
@@ -470,7 +510,17 @@
         <li><b>표 구조 태그</b> — <code>&lt;thead&gt;</code>(제목) · <code>&lt;tbody&gt;</code>(본문) · <code>&lt;tfoot&gt;</code>(요약)로 나누면, 시각 장애인도 화면 판독기로 표 구조를 쉽게 이해할 수 있다.</li>
       </ul>
 <pre><span class="br">&lt;</span><span class="tg">td</span> <span class="at">colspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">두 열을 하나로</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span>
-<span class="br">&lt;</span><span class="tg">td</span> <span class="at">rowspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">두 행을 하나로</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span></pre>
+<span class="br">&lt;</span><span class="tg">td</span> <span class="at">rowspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">두 행을 하나로</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span>
+
+<span class="br">&lt;</span><span class="tg">table</span> <span class="at">border</span>=<span class="st">"1"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">td</span> <span class="at">colspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">colspan="2"</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">A</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">B</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">table</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력 — colspan / rowspan</span>
         <table style="width:auto;border-collapse:collapse">
           <tr><td colspan="2" style="border:1px solid #333;padding:5px 12px;text-align:center;background:#eef2fb">colspan="2"</td></tr>
@@ -480,15 +530,15 @@
     </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
       <h4>실습 9-1. 셀 합치기</h4>
-      <p>맨 윗줄 하나의 셀이 아래 두 열을 모두 덮도록(가로로 합치도록) 만드는 태그를 쓰세요.</p>
+      <p>맨 왼쪽 하나의 셀이 아래 두 행을 모두 덮도록(세로로 합치도록) 만드는 태그를 쓰세요.</p>
       <details><summary>정답 보기</summary>
 <pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
 <span class="br">&lt;</span><span class="tg">table</span> <span class="at">border</span>=<span class="st">"1"</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span> <span class="at">colspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">제목</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">왼쪽</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">오른쪽</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span> <span class="at">rowspan</span>=<span class="st">"2"</span><span class="br">&gt;</span><span class="tx">제목</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">위</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+  <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">아래</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
 <span class="br">&lt;/</span><span class="tg">table</span><span class="br">&gt;</span>
 <span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
-        <p class="muted">가로 병합은 <code>colspan</code>, 세로 병합은 <code>rowspan</code>이다.</p>
+        <p class="muted">세로 병합은 <code>rowspan</code>, 가로 병합은 <code>colspan</code>이다. <code>rowspan="2"</code>는 한 셀이 아래 두 행에 걸쳐진다.</p>
       </details>
     </div>
   </section>
@@ -513,7 +563,14 @@
 <span class="sel">td</span> <span class="pn">{</span>
     <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #ccc</span><span class="pn">;</span>
     <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
-<span class="pn">}</span></pre>
+<span class="pn">}</span>
+
+<span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">table</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">여백 있는 셀</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">B</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">C</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">td</span><span class="br">&gt;</span><span class="tx">D</span><span class="br">&lt;/</span><span class="tg">td</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">table</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
         <table style="width:300px;border-collapse:collapse">
           <tr><td style="border:1px solid #ccc;padding:10px">여백 있는 셀</td><td style="border:1px solid #ccc;padding:10px">B</td></tr>
@@ -529,7 +586,14 @@
       </ul>
     </div>
     <div class="ex"><div class="lbl">💡 예제 — thead·tbody·tfoot</div>
-<pre><span class="br">&lt;</span><span class="tg">table</span><span class="br">&gt;</span>
+<pre><span class="br">&lt;</span><span class="tg">style</span><span class="br">&gt;</span>
+    <span class="sel">table</span> <span class="pn">{</span> <span class="pr">border-collapse</span><span class="pn">:</span> <span class="vl">collapse</span><span class="pn">;</span> <span class="pr">text-align</span><span class="pn">:</span> <span class="vl">center</span><span class="pn">;</span> <span class="pn">}</span>
+    <span class="sel">th, td</span> <span class="pn">{</span> <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #ccc</span><span class="pn">;</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">16px 28px</span><span class="pn">;</span> <span class="pn">}</span>
+    <span class="sel">thead th</span> <span class="pn">{</span> <span class="pr">background</span><span class="pn">:</span> <span class="vl">#eaf2fb</span><span class="pn">;</span> <span class="pn">}</span>   <span class="cm">/* 머리글 강조 */</span>
+    <span class="sel">tfoot td</span> <span class="pn">{</span> <span class="pr">background</span><span class="pn">:</span> <span class="vl">#ececec</span><span class="pn">;</span> <span class="pn">}</span>   <span class="cm">/* 요약 행 강조 */</span>
+<span class="br">&lt;/</span><span class="tg">style</span><span class="br">&gt;</span>
+
+<span class="br">&lt;</span><span class="tg">table</span><span class="br">&gt;</span>
   <span class="br">&lt;</span><span class="tg">caption</span><span class="br">&gt;</span><span class="tx">월별 저축액</span><span class="br">&lt;/</span><span class="tg">caption</span><span class="br">&gt;</span>
   <span class="br">&lt;</span><span class="tg">thead</span><span class="br">&gt;</span>
     <span class="br">&lt;</span><span class="tg">tr</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">월별</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">th</span><span class="br">&gt;</span><span class="tx">저축액</span><span class="br">&lt;/</span><span class="tg">th</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">tr</span><span class="br">&gt;</span>
