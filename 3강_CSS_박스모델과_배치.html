@@ -66,10 +66,15 @@
       <li><a href="#m5">box-sizing</a></li>
       <li><a href="#m6">블록 · 인라인 레벨 요소</a></li>
       <li><a href="#m7">display · visibility 속성</a></li>
-      <li><a href="#m8">HTML5 시맨틱 레이아웃 태그</a></li>
       <li><a href="#m9">float 속성과 레이아웃</a></li>
-      <li><a href="#m10">position 속성</a></li>
-      <li><a href="#m11">z-index 속성</a></li>
+      <li><a href="#m8">HTML5 시맨틱 레이아웃 태그</a></li>
+      <li><a href="#m10">웹에서 만나는 폼(Form)과 &lt;form&gt; 태그</a></li>
+      <li><a href="#m12">&lt;input&gt; 태그와 type 속성</a></li>
+      <li><a href="#m13">&lt;label&gt; , &lt;input&gt; 태그</a></li>
+      <li><a href="#m14">radio · checkbox 버튼</a></li>
+      <li><a href="#m16">&lt;textarea&gt; — 여러 줄 입력</a></li>
+      <li><a href="#m17">&lt;select&gt; · &lt;option&gt; 목록</a></li>
+      <li><a href="#m19">&lt;button&gt; 태그, 자바스크립트 함수</a></li>
     </ol>
   </nav>
 
@@ -333,7 +338,16 @@
     </div>
     <div class="concept"><h3 class="blk">📖 border-radius — 모서리 둥글게</h3>
       <p>박스 모서리를 다양한 형태로 처리한다. 값이 클수록 더 둥글어지고, 정사각형에 <code>50%</code>를 주면 원이 된다.</p>
-<pre><span class="sel">.round</span> <span class="pn">{</span> <span class="pr">border-radius</span><span class="pn">:</span> <span class="vl">20px</span><span class="pn">;</span> <span class="pn">}</span>
+      <p class="muted"><code>px</code> — 반지름의 크기(고정), <code>%</code> — 현재 요소의 크기 기준으로 비율 적용.</p>
+<pre><span class="sel">div</span> <span class="pn">{</span>
+    <span class="pr">width</span><span class="pn">:</span> <span class="vl">100px</span><span class="pn">;</span>
+    <span class="pr">height</span><span class="pn">:</span> <span class="vl">100px</span><span class="pn">;</span>
+    <span class="pr">background-color</span><span class="pn">:</span> <span class="vl">rgb(213, 178, 246)</span><span class="pn">;</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">2px solid #00f</span><span class="pn">;</span>
+    <span class="pr">margin</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+    <span class="pr">display</span><span class="pn">:</span> <span class="vl">inline-block</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">.round</span> <span class="pn">{</span> <span class="pr">border-radius</span><span class="pn">:</span> <span class="vl">20px</span><span class="pn">;</span> <span class="pn">}</span>
 <span class="sel">.circle</span> <span class="pn">{</span> <span class="pr">border-radius</span><span class="pn">:</span> <span class="vl">50%</span><span class="pn">;</span> <span class="pn">}</span>
 
 <span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
@@ -378,6 +392,14 @@
     </div>
     <div class="ex"><div class="lbl">💡 예제 — box-sizing.html</div>
 <pre><span class="cm">/* 둘 다 width:150px, padding:20px, border:5px 인데... */</span>
+<span class="sel">div</span> <span class="pn">{</span>
+    <span class="pr">width</span><span class="pn">:</span> <span class="vl">150px</span><span class="pn">;</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">5px solid #00f</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">20px</span><span class="pn">;</span>
+    <span class="pr">text-align</span><span class="pn">:</span> <span class="vl">center</span><span class="pn">;</span>
+    <span class="pr">display</span><span class="pn">:</span> <span class="vl">inline-block</span><span class="pn">;</span>
+    <span class="pr">margin-right</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+<span class="pn">}</span>
 <span class="sel">.a</span> <span class="pn">{</span> <span class="pr">box-sizing</span><span class="pn">:</span> <span class="vl">content-box</span><span class="pn">;</span> <span class="pn">}</span> <span class="cm">/* 실제 너비 = 150+40+10 = 200px */</span>
 <span class="sel">.b</span> <span class="pn">{</span> <span class="pr">box-sizing</span><span class="pn">:</span> <span class="vl">border-box</span><span class="pn">;</span> <span class="pn">}</span>  <span class="cm">/* 실제 너비 = 150px 그대로 */</span>
 
@@ -463,40 +485,72 @@
       </div>
     </div>
     <div class="ex"><div class="lbl">💡 예제 — 가로 메뉴 navbar1.html</div>
-<pre><span class="sel">nav a</span> <span class="pn">{</span>
-    <span class="pr">display</span><span class="pn">:</span> <span class="vl">inline-block</span><span class="pn">;</span>
-    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px 18px</span><span class="pn">;</span>
-    <span class="pr">background</span><span class="pn">:</span> <span class="vl">#7048e8</span><span class="pn">;</span>
-    <span class="pr">color</span><span class="pn">:</span> <span class="vl">white</span><span class="pn">;</span>
+<pre><span class="sel">nav</span> <span class="pn">{</span> <span class="pr">width</span><span class="pn">:</span> <span class="vl">300px</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="sel">ul</span> <span class="pn">{</span> <span class="pr">list-style</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="sel">ul li</span> <span class="pn">{</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #333</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">20px 40px</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">ul li a</span> <span class="pn">{</span>
     <span class="pr">text-decoration</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span>
+    <span class="pr">color</span><span class="pn">:</span> <span class="vl">#333</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">ul li:hover</span> <span class="pn">{</span>
+    <span class="cm">/* li 태그에 마우스 올리면 배경색이 생김 */</span>
+    <span class="pr">background-color</span><span class="pn">:</span> <span class="vl">#eee</span><span class="pn">;</span>
 <span class="pn">}</span></pre>
 <pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">nav</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">홈</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">소개</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">연락처</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span>
-  <span class="br">&lt;/</span><span class="tg">nav</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">ABC 주식회사</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">nav</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">ul</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">회사 소개</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">도서</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">자료실</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">게시판</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">ul</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">nav</span><span class="br">&gt;</span>
 <span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
-        <div>
-          <a href="#m7" style="display:inline-block;padding:10px 18px;background:#7048e8;color:#fff;text-decoration:none;border-radius:4px">홈</a>
-          <a href="#m7" style="display:inline-block;padding:10px 18px;background:#7048e8;color:#fff;text-decoration:none;border-radius:4px">소개</a>
-          <a href="#m7" style="display:inline-block;padding:10px 18px;background:#7048e8;color:#fff;text-decoration:none;border-radius:4px">연락처</a>
-        </div>
+        <style>.nvb1 li{border:1px solid #333;padding:20px 40px}.nvb1 li:hover{background-color:#eee}</style>
+        <h1 style="font-size:1.4rem;margin:0 0 10px">ABC 주식회사</h1>
+        <nav style="width:300px">
+          <ul class="nvb1" style="list-style:none;margin:0;padding:0">
+            <li><a href="#m9" style="text-decoration:none;color:#333">회사 소개</a></li>
+            <li><a href="#m9" style="text-decoration:none;color:#333">도서</a></li>
+            <li><a href="#m9" style="text-decoration:none;color:#333">자료실</a></li>
+            <li><a href="#m9" style="text-decoration:none;color:#333">게시판</a></li>
+          </ul>
+        </nav>
+        <p class="muted" style="margin:10px 0 0">각 항목에 마우스를 올리면 배경색(<code>#eee</code>)이 생긴다.</p>
       </div>
     </div>
     <div class="lab"><div class="lbl">✏️ 실습문제</div>
       <h4>실습 7-1. 세로 메뉴를 가로로</h4>
       <p>목록으로 만든 세로 메뉴의 각 <code>&lt;li&gt;</code>를 가로로 나란히 배치하되 여백을 줄 수 있게 만드세요.</p>
       <details><summary>정답 보기</summary>
-<pre><span class="sel">li</span> <span class="pn">{</span> <span class="pr">display</span><span class="pn">:</span> <span class="vl">inline-block</span><span class="pn">;</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">8px 14px</span><span class="pn">;</span> <span class="pn">}</span></pre>
-<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">ul</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">홈</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">소개</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="tx">연락처</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
-  <span class="br">&lt;/</span><span class="tg">ul</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
+<pre><span class="sel">nav</span> <span class="pn">{</span> <span class="pr">width</span><span class="pn">:</span> <span class="vl">800px</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="sel">ul</span> <span class="pn">{</span> <span class="pr">list-style</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="sel">ul li</span> <span class="pn">{</span>
+    <span class="pr">display</span><span class="pn">:</span> <span class="vl">inline-block</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">20px 40px</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">ul li a</span> <span class="pn">{</span>
+    <span class="pr">text-decoration</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span>
+    <span class="pr">color</span><span class="pn">:</span> <span class="vl">#333</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">ul li:hover</span> <span class="pn">{</span>
+    <span class="cm">/* li 태그에 마우스 올리면 배경색이 생김 */</span>
+    <span class="pr">background-color</span><span class="pn">:</span> <span class="vl">#eee</span><span class="pn">;</span>
+<span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">ABC 주식회사</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">nav</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">ul</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">회사 소개</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">도서</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">자료실</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">a</span> <span class="at">href</span>=<span class="st">"#"</span><span class="br">&gt;</span><span class="tx">게시판</span><span class="br">&lt;/</span><span class="tg">a</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">ul</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">nav</span><span class="br">&gt;</span></pre>
         <p class="muted"><code>inline</code>은 여백·크기 지정이 제한적이라, 가로 배치+여백이 필요하면 <code>inline-block</code>을 쓴다.</p>
       </details>
     </div>
@@ -557,46 +611,9 @@
     </div>
   </section>
 
-  <!-- ===================== M8 ===================== -->
-  <section class="module" id="m8">
-    <h2><span class="num">8</span> HTML5 시맨틱 레이아웃 태그</h2>
-    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
-      <li>HTML5 시맨틱 태그로 문서 구조를 직관적으로 나눌 수 있다.</li>
-    </ul></div>
-    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
-      <p>웹 문서 표준화를 위해 레이아웃을 만들 때 쓰는 주요 태그를 미리 약속했다. 태그만 봐도 어디가 머리말이고 실제 내용인지 <b>직관적으로</b> 알 수 있어 문서 구조를 정확히 이해할 수 있다. (HTML5: 2008년 초안 공개, 2014년 공식 표준 발표, 현재 W3C 관리)</p>
-      <table>
-        <tr><th style="width:150px">태그</th><th>설명</th></tr>
-        <tr><td><code>&lt;header&gt;</code></td><td>머리말. 사이트/본문의 제목 부분. <code>&lt;nav&gt;</code>로 사이트 메뉴를 넣을 수 있다.</td></tr>
-        <tr><td><code>&lt;nav&gt;</code></td><td>사이트 메뉴(링크 모음)</td></tr>
-        <tr><td><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code></td><td>주제별 콘텐츠 영역. 제목 <code>&lt;h1&gt;~&lt;h6&gt;</code>과 함께 사용</td></tr>
-        <tr><td><code>&lt;aside&gt;</code></td><td>본문 이외의 내용(광고·링크 모음 등 사이드바)</td></tr>
-        <tr><td><code>&lt;footer&gt;</code></td><td>연락처·저작권 정보. 주소는 <code>&lt;address&gt;</code> 사용</td></tr>
-      </table>
-    </div>
-    <div class="ex"><div class="lbl">💡 예제 — 시맨틱 레이아웃 골격</div>
-<pre><span class="br">&lt;</span><span class="tg">header</span><span class="br">&gt;</span><span class="tx">사이트 제목 · 메뉴</span><span class="br">&lt;/</span><span class="tg">header</span><span class="br">&gt;</span>
-<span class="br">&lt;</span><span class="tg">section</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">article</span><span class="br">&gt;</span><span class="tx">실제 본문 내용</span><span class="br">&lt;/</span><span class="tg">article</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">section</span><span class="br">&gt;</span>
-<span class="br">&lt;</span><span class="tg">aside</span><span class="br">&gt;</span><span class="tx">사이드바(광고·링크)</span><span class="br">&lt;/</span><span class="tg">aside</span><span class="br">&gt;</span>
-<span class="br">&lt;</span><span class="tg">footer</span><span class="br">&gt;</span><span class="tx">연락처 · 저작권</span><span class="br">&lt;/</span><span class="tg">footer</span><span class="br">&gt;</span></pre>
-      <div class="out"><span class="rt">구조 미리보기</span>
-        <div style="border:1px solid #7048e8;border-radius:6px;overflow:hidden;font-size:.85rem">
-          <div style="background:#7048e8;color:#fff;padding:8px;text-align:center">header (헤더 · nav)</div>
-          <div style="display:flex">
-            <div style="flex:3;background:#efe6fb;padding:16px 8px;text-align:center">section / article<br>(콘텐츠)</div>
-            <div style="flex:1;background:#e7dcfb;padding:16px 8px;text-align:center">aside<br>(사이드바)</div>
-          </div>
-          <div style="background:#4b2bbf;color:#fff;padding:8px;text-align:center">footer (연락처 · 저작권)</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== M9 ===================== -->
+  <!-- ===================== M8 (float) ===================== -->
   <section class="module" id="m9">
-    <h2><span class="num">9</span> float 속성과 레이아웃</h2>
+    <h2><span class="num">8</span> float 속성과 레이아웃</h2>
     <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
       <li><code>float</code>로 요소를 좌우로 띄워 배치할 수 있다.</li>
       <li><code>clear</code>로 float를 해제하고 2단 레이아웃을 만들 수 있다.</li>
@@ -676,159 +693,406 @@
       </div>
     </div>
     <div class="ex"><div class="lbl">💡 예제 — 텍스트와 이미지 배치(float-text.html)</div>
-<pre><span class="sel">img</span> <span class="pn">{</span> <span class="pr">float</span><span class="pn">:</span> <span class="vl">left</span><span class="pn">;</span> <span class="pr">margin</span><span class="pn">:</span> <span class="vl">0 12px 8px 0</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="cm">/* 이미지를 왼쪽에 띄우면 텍스트가 오른쪽을 감싼다 */</span></pre>
-<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">img</span> <span class="at">src</span>=<span class="st">"images/photo.jpg"</span> <span class="at">alt</span>=<span class="st">"이미지"</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">float:left를 준 이미지 오른쪽으로 텍스트가 흘러 들어가 이미지를 감싼다.</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
+<pre><span class="sel">img</span> <span class="pn">{</span>
+    <span class="pr">float</span><span class="pn">:</span> <span class="vl">left</span><span class="pn">;</span>
+    <span class="pr">margin-right</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">p</span> <span class="pn">{</span>
+    <span class="pr">width</span><span class="pn">:</span> <span class="vl">700px</span><span class="pn">;</span>
+    <span class="pr">line-height</span><span class="pn">:</span> <span class="vl">1.5</span><span class="pn">;</span>
+    <span class="pr">text-align</span><span class="pn">:</span> <span class="vl">justify</span><span class="pn">;</span>  <span class="cm">/* 문단 양쪽 정렬 */</span>
+<span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">img</span> <span class="at">src</span>=<span class="st">"images/cat.jpg"</span> <span class="at">alt</span>=<span class="st">"고양이"</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">h3</span><span class="br">&gt;</span><span class="tx">왼쪽이나 오른쪽으로 배치하는 float 속성</span><span class="br">&lt;/</span><span class="tg">h3</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="tx">웹 문서를 만들다 보면 문단과 이미지를 표시해야 할 경우가 있다.
+    &lt;P&gt; 태그는 블록 레벨 요소이므로 이미지와 나란히 배치할 수 없다.
+    이럴때 float 속성을 사용하여 이미지를 표시한다.
+</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span></pre>
       <div class="out"><span class="rt">브라우저 출력</span>
-        <div style="overflow:hidden">
-          <div style="float:left;width:80px;height:60px;background:#7048e8;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 12px 8px 0;font-size:.8rem">이미지</div>
-          <p style="margin:0">float:left를 준 이미지 오른쪽으로 텍스트가 자연스럽게 흘러 들어가 이미지를 감싼다. 텍스트가 길어지면 이미지 아래까지 이어진다.</p>
+        <div style="overflow:hidden;max-width:100%">
+          <div style="float:left;width:120px;height:90px;background:#e7dcfb;border:1px solid #7048e8;display:flex;align-items:center;justify-content:center;margin-right:10px;font-size:.82rem;color:#4b2bbf;text-align:center">고양이<br>이미지</div>
+          <h3 style="margin:0 0 6px">왼쪽이나 오른쪽으로 배치하는 float 속성</h3>
+          <p style="line-height:1.5;text-align:justify;margin:0">웹 문서를 만들다 보면 문단과 이미지를 표시해야 할 경우가 있다. &lt;P&gt; 태그는 블록 레벨 요소이므로 이미지와 나란히 배치할 수 없다. 이럴때 float 속성을 사용하여 이미지를 표시한다.</p>
         </div>
+        <p class="muted" style="margin:10px 0 0">이미지에 <code>float:left</code>를 주면 뒤따르는 제목·문단이 오른쪽으로 흘러 이미지를 감싼다.</p>
       </div>
-    </div>
-    <div class="ex"><div class="lbl">💡 예제 — 2단 레이아웃(float-layout.html)</div>
-<pre><span class="sel">.left</span>  <span class="pn">{</span> <span class="pr">float</span><span class="pn">:</span> <span class="vl">left</span><span class="pn">;</span>  <span class="pr">width</span><span class="pn">:</span> <span class="vl">30%</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="sel">.right</span> <span class="pn">{</span> <span class="pr">float</span><span class="pn">:</span> <span class="vl">left</span><span class="pn">;</span>  <span class="pr">width</span><span class="pn">:</span> <span class="vl">70%</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="sel">.footer</span> <span class="pn">{</span> <span class="pr">clear</span><span class="pn">:</span> <span class="vl">both</span><span class="pn">;</span> <span class="pn">}</span>  <span class="cm">/* float 해제 */</span></pre>
-<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"left"</span><span class="br">&gt;</span><span class="tx">사이드 (30%)</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"right"</span><span class="br">&gt;</span><span class="tx">본문 (70%)</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"footer"</span><span class="br">&gt;</span><span class="tx">footer</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
-      <div class="out"><span class="rt">브라우저 출력 — 2단 레이아웃</span>
-        <div style="overflow:hidden;font-size:.85rem">
-          <div style="float:left;width:30%;background:#efe6fb;border:1px solid #7048e8;padding:14px 6px;text-align:center;box-sizing:border-box">사이드<br>(30%)</div>
-          <div style="float:left;width:70%;background:#d6f5e6;border:1px solid #27ae60;padding:14px 6px;text-align:center;box-sizing:border-box">본문 (70%)</div>
-          <div style="clear:both;background:#4b2bbf;color:#fff;padding:8px;text-align:center;margin-top:4px">footer (clear:both)</div>
-        </div>
-      </div>
-    </div>
-    <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 9-1. 오른쪽 사이드바</h4>
-      <p>본문은 왼쪽 <code>70%</code>, 사이드바는 오른쪽 <code>30%</code>로 float 배치하고, 아래 footer에서 float를 해제하세요.</p>
-      <details><summary>정답 보기</summary>
-<pre><span class="sel">.main</span> <span class="pn">{</span> <span class="pr">float</span><span class="pn">:</span> <span class="vl">left</span><span class="pn">;</span>  <span class="pr">width</span><span class="pn">:</span> <span class="vl">70%</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="sel">.side</span> <span class="pn">{</span> <span class="pr">float</span><span class="pn">:</span> <span class="vl">right</span><span class="pn">;</span> <span class="pr">width</span><span class="pn">:</span> <span class="vl">30%</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="sel">footer</span> <span class="pn">{</span> <span class="pr">clear</span><span class="pn">:</span> <span class="vl">both</span><span class="pn">;</span> <span class="pn">}</span></pre>
-<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"main"</span><span class="br">&gt;</span><span class="tx">본문 (70%)</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"side"</span><span class="br">&gt;</span><span class="tx">사이드바 (30%)</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">footer</span><span class="br">&gt;</span><span class="tx">footer</span><span class="br">&lt;/</span><span class="tg">footer</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
-        <p class="muted"><code>clear:both</code>가 없으면 footer가 위 요소 옆으로 딸려 올라간다.</p>
-      </details>
     </div>
   </section>
 
-  <!-- ===================== M10 ===================== -->
-  <section class="module" id="m10">
-    <h2><span class="num">10</span> position 속성</h2>
+  <!-- ===================== M9 (semantic) ===================== -->
+  <section class="module" id="m8">
+    <h2><span class="num">9</span> HTML5 시맨틱 레이아웃 태그</h2>
     <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
-      <li><code>position</code>의 네 가지 값을 구분해 요소를 배치할 수 있다.</li>
-      <li>부모가 <code>relative</code>일 때 자식 <code>absolute</code>의 기준을 이해한다.</li>
+      <li>HTML5 시맨틱 태그로 문서 구조를 직관적으로 나눌 수 있다.</li>
     </ul></div>
     <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
-      <p>요소들을 자유자재로 배치하기 위한 속성. 좌표(<code>top·right·bottom·left</code>)로 위치를 지정한다.</p>
+      <p>웹 문서 표준화를 위해 레이아웃을 만들 때 쓰는 주요 태그를 미리 약속했다. 태그만 봐도 어디가 머리말이고 실제 내용인지 <b>직관적으로</b> 알 수 있어 문서 구조를 정확히 이해할 수 있다. (HTML5: 2008년 초안 공개, 2014년 공식 표준 발표, 현재 W3C 관리)</p>
       <table>
-        <tr><th style="width:150px">값</th><th>설명</th></tr>
-        <tr><td><code>static</code></td><td>기본값. 문서 흐름대로 배치(위치 지정 불가)</td></tr>
-        <tr><td><code>relative</code></td><td>원래 위치를 기준으로 상대 이동. 이전 요소에 자연스럽게 연결되며 위치 지정 가능</td></tr>
-        <tr><td><code>absolute</code></td><td>원하는 위치에 배치. 단독이면 <b>브라우저 창</b> 기준, 부모가 <code>relative</code>이면 <b>그 부모</b> 기준</td></tr>
-        <tr><td><code>fixed</code></td><td>브라우저 창 기준으로 지정 위치에 <b>고정</b>. 스크롤해도 같은 자리에 유지</td></tr>
+        <tr><th style="width:150px">태그</th><th>설명</th></tr>
+        <tr><td><code>&lt;header&gt;</code></td><td>머리말. 사이트/본문의 제목 부분. <code>&lt;nav&gt;</code>로 사이트 메뉴를 넣을 수 있다.</td></tr>
+        <tr><td><code>&lt;nav&gt;</code></td><td>사이트 메뉴(링크 모음)</td></tr>
+        <tr><td><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code></td><td>주제별 콘텐츠 영역. 제목 <code>&lt;h1&gt;~&lt;h6&gt;</code>과 함께 사용</td></tr>
+        <tr><td><code>&lt;aside&gt;</code></td><td>본문 이외의 내용(광고·링크 모음 등 사이드바)</td></tr>
+        <tr><td><code>&lt;footer&gt;</code></td><td>연락처·저작권 정보. 주소는 <code>&lt;address&gt;</code> 사용</td></tr>
       </table>
     </div>
-    <div class="ex"><div class="lbl">💡 예제 — relative 부모 + absolute 자식(position-rel_abs.html)</div>
-<pre><span class="sel">.parent</span> <span class="pn">{</span> <span class="pr">position</span><span class="pn">:</span> <span class="vl">relative</span><span class="pn">;</span> <span class="pn">}</span>  <span class="cm">/* 기준이 되는 부모 */</span>
-<span class="sel">.badge</span> <span class="pn">{</span>
-    <span class="pr">position</span><span class="pn">:</span> <span class="vl">absolute</span><span class="pn">;</span>
-    <span class="pr">top</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span> <span class="pr">right</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>  <span class="cm">/* 부모 기준 우상단 */</span>
-<span class="pn">}</span></pre>
-<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"parent"</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">span</span> <span class="at">class</span>=<span class="st">"badge"</span><span class="br">&gt;</span><span class="tx">NEW</span><span class="br">&lt;/</span><span class="tg">span</span><span class="br">&gt;</span>
-    <span class="tx">부모(relative) 기준으로 배지 배치</span>
-  <span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
-      <div class="out"><span class="rt">브라우저 출력</span>
-        <div style="position:relative;height:90px;background:#efe6fb;border:1px solid #7048e8">
-          <span style="position:absolute;top:10px;right:10px;background:#e03131;color:#fff;padding:2px 8px;border-radius:10px;font-size:.8rem">NEW</span>
-          <span style="position:absolute;left:10px;bottom:10px;color:#4b2bbf">부모(relative) 기준으로 배지 배치</span>
+    <div class="ex"><div class="lbl">💡 예제 — 시맨틱 레이아웃 골격</div>
+<pre><span class="br">&lt;</span><span class="tg">header</span><span class="br">&gt;</span><span class="tx">사이트 제목 · 메뉴</span><span class="br">&lt;/</span><span class="tg">header</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">section</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">article</span><span class="br">&gt;</span><span class="tx">실제 본문 내용</span><span class="br">&lt;/</span><span class="tg">article</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">section</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">aside</span><span class="br">&gt;</span><span class="tx">사이드바(광고·링크)</span><span class="br">&lt;/</span><span class="tg">aside</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">footer</span><span class="br">&gt;</span><span class="tx">연락처 · 저작권</span><span class="br">&lt;/</span><span class="tg">footer</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">구조 미리보기</span>
+        <div style="border:1px solid #7048e8;border-radius:6px;overflow:hidden;font-size:.85rem">
+          <div style="background:#7048e8;color:#fff;padding:8px;text-align:center">header (헤더 · nav)</div>
+          <div style="display:flex">
+            <div style="flex:3;background:#efe6fb;padding:16px 8px;text-align:center">section / article<br>(콘텐츠)</div>
+            <div style="flex:1;background:#e7dcfb;padding:16px 8px;text-align:center">aside<br>(사이드바)</div>
+          </div>
+          <div style="background:#4b2bbf;color:#fff;padding:8px;text-align:center">footer (연락처 · 저작권)</div>
         </div>
       </div>
     </div>
-    <div class="concept"><h3 class="blk">📖 fixed — 화면에 고정</h3>
-      <p>문서 흐름과 상관없이 <b>브라우저 창</b> 기준으로 배치되며, 스크롤해도 같은 위치에 계속 고정된다. 상단 고정 헤더나 '맨 위로' 버튼에 쓴다.</p>
-<pre><span class="sel">.top-btn</span> <span class="pn">{</span>
-    <span class="pr">position</span><span class="pn">:</span> <span class="vl">fixed</span><span class="pn">;</span>
-    <span class="pr">right</span><span class="pn">:</span> <span class="vl">20px</span><span class="pn">;</span> <span class="pr">bottom</span><span class="pn">:</span> <span class="vl">20px</span><span class="pn">;</span>
+    <div class="ex"><div class="lbl">💡 예제 — 2단 레이아웃 설정하기(boxsize.css)</div>
+<pre><span class="cm">/* boxsize.css */</span>
+<span class="sel">*</span> <span class="pn">{</span>
+    <span class="pr">margin</span><span class="pn">:</span> <span class="vl">0</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">0</span><span class="pn">;</span>
+    <span class="pr">box-sizing</span><span class="pn">:</span> <span class="vl">border-box</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">#container</span> <span class="pn">{</span> <span class="pr">width</span><span class="pn">:</span> <span class="vl">1000px</span><span class="pn">;</span> <span class="pr">margin</span><span class="pn">:</span> <span class="vl">0 auto</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="sel">header</span> <span class="pn">{</span>
+    <span class="cm">/* width는 container와 같으면 생략 가능함 */</span>
+    <span class="pr">height</span><span class="pn">:</span> <span class="vl">100px</span><span class="pn">;</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #ccc</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">section</span> <span class="pn">{</span>
+    <span class="pr">width</span><span class="pn">:</span> <span class="vl">640px</span><span class="pn">;</span>
+    <span class="pr">height</span><span class="pn">:</span> <span class="vl">600px</span><span class="pn">;</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #ccc</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+    <span class="pr">float</span><span class="pn">:</span> <span class="vl">left</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">aside</span> <span class="pn">{</span>
+    <span class="pr">width</span><span class="pn">:</span> <span class="vl">360px</span><span class="pn">;</span>
+    <span class="pr">height</span><span class="pn">:</span> <span class="vl">600px</span><span class="pn">;</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #ccc</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+    <span class="pr">background-color</span><span class="pn">:</span> <span class="vl">rgb(194, 247, 194)</span><span class="pn">;</span>
+    <span class="pr">float</span><span class="pn">:</span> <span class="vl">right</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">footer</span> <span class="pn">{</span>
+    <span class="pr">height</span><span class="pn">:</span> <span class="vl">100px</span><span class="pn">;</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #ccc</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+    <span class="pr">clear</span><span class="pn">:</span> <span class="vl">both</span><span class="pn">;</span>
 <span class="pn">}</span></pre>
-    </div>
-    <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 10-1. 카드 우상단 라벨</h4>
-      <p>카드(부모) 우측 상단 모서리에 "HOT" 라벨을 겹쳐 놓으세요.</p>
-      <details><summary>정답 보기</summary>
-<pre><span class="sel">.card</span> <span class="pn">{</span> <span class="pr">position</span><span class="pn">:</span> <span class="vl">relative</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="sel">.label</span> <span class="pn">{</span>
-    <span class="pr">position</span><span class="pn">:</span> <span class="vl">absolute</span><span class="pn">;</span>
-    <span class="pr">top</span><span class="pn">:</span> <span class="vl">0</span><span class="pn">;</span> <span class="pr">right</span><span class="pn">:</span> <span class="vl">0</span><span class="pn">;</span>
-<span class="pn">}</span></pre>
-<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"card"</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">span</span> <span class="at">class</span>=<span class="st">"label"</span><span class="br">&gt;</span><span class="tx">HOT</span><span class="br">&lt;/</span><span class="tg">span</span><span class="br">&gt;</span>
-    <span class="tx">카드 내용</span>
-  <span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
+<pre><span class="br">&lt;</span><span class="tg">head</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">meta</span> <span class="at">charset</span>=<span class="st">"UTF-8"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">meta</span> <span class="at">name</span>=<span class="st">"viewport"</span> <span class="at">content</span>=<span class="st">"width=device-width, initial-scale=1.0"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">title</span><span class="br">&gt;</span><span class="tx">2단 레이아웃 설정하기</span><span class="br">&lt;/</span><span class="tg">title</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">link</span> <span class="at">rel</span>=<span class="st">"stylesheet"</span> <span class="at">href</span>=<span class="st">"css/boxsize.css"</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">head</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
+    <span class="cm">&lt;!-- semantic(의미있는) 태그 구조 --&gt;</span>
+    <span class="br">&lt;</span><span class="tg">div</span> <span class="at">id</span>=<span class="st">"container"</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">header</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">사이트 제목</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">header</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">section</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">본문</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">section</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">aside</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">사이드바</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">aside</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">footer</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">h1</span><span class="br">&gt;</span><span class="tx">푸터</span><span class="br">&lt;/</span><span class="tg">h1</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">footer</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
 <span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
-        <p class="muted">부모에 <code>relative</code>를 줘야 자식 <code>absolute</code>가 <b>부모 기준</b>으로 배치된다. 안 주면 브라우저 창 기준이 된다.</p>
-      </details>
+      <div class="out"><span class="rt">브라우저 출력 — 2단 레이아웃</span>
+        <div style="max-width:100%;overflow:hidden;font-size:.85rem;box-sizing:border-box">
+          <div style="border:1px solid #ccc;padding:10px;box-sizing:border-box">사이트 제목 <span class="muted">(header)</span></div>
+          <div style="overflow:hidden">
+            <div style="float:left;width:64%;height:170px;border:1px solid #ccc;padding:10px;box-sizing:border-box">본문 <span class="muted">(section · 640px · float:left)</span></div>
+            <div style="float:right;width:36%;height:170px;border:1px solid #ccc;padding:10px;box-sizing:border-box;background-color:rgb(194,247,194)">사이드바 <span class="muted">(aside · 360px · float:right)</span></div>
+          </div>
+          <div style="clear:both;border:1px solid #ccc;padding:10px;box-sizing:border-box">푸터 <span class="muted">(footer · clear:both)</span></div>
+        </div>
+        <p class="muted" style="margin:10px 0 0"><code>#container</code>(1000px, <code>margin:0 auto</code>)로 가운데 정렬 → <code>section</code>은 <code>float:left</code>(640px), <code>aside</code>는 <code>float:right</code>(360px), <code>footer</code>는 <code>clear:both</code>로 float 해제. (미리보기는 화면 폭에 맞춰 축소)</p>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== M11 ===================== -->
-  <section class="module" id="m11">
-    <h2><span class="num">11</span> z-index 속성</h2>
+  <section class="module" id="m10">
+    <h2><span class="num">10</span> 웹에서 만나는 폼(Form)과 &lt;form&gt; 태그</h2>
     <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
-      <li><code>z-index</code>로 겹친 요소의 쌓임 순서를 정할 수 있다.</li>
+      <li>폼이 하는 일과 클라이언트·서버의 데이터 흐름을 설명할 수 있다.</li>
+      <li><code>&lt;form&gt;</code>의 <code>action</code>·<code>method</code>·<code>name</code> 속성의 역할을 설명할 수 있다.</li>
     </ul></div>
     <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
       <ul>
-        <li>요소가 겹칠 때 <b>쌓는 순서(앞뒤)</b>를 정한다.</li>
-        <li><code>z-index</code> 값이 <b>클수록 위</b>에 쌓인다.</li>
-        <li>값을 명시하지 않으면 나중에 나온 요소가 위에 온다(작성 순서대로 쌓임).</li>
-        <li>보통 <code>position</code>(relative·absolute·fixed)과 함께 써야 적용된다.</li>
+        <li><b>폼(form)</b>은 사용자가 웹 브라우저를 통해 입력한 데이터를 <b>웹 서버로 전송하는 양식</b>이다.</li>
+        <li>폼에 입력된 정보를 실제로 처리하는 것은 <b>Java(JSP)·Python·PHP</b> 같은 <b>서버 측 언어</b>다.</li>
       </ul>
-<pre><span class="sel">.back</span>  <span class="pn">{</span> <span class="pr">position</span><span class="pn">:</span> <span class="vl">absolute</span><span class="pn">;</span> <span class="pr">z-index</span><span class="pn">:</span> <span class="vl">1</span><span class="pn">;</span> <span class="pn">}</span>
-<span class="sel">.front</span> <span class="pn">{</span> <span class="pr">position</span><span class="pn">:</span> <span class="vl">absolute</span><span class="pn">;</span> <span class="pr">z-index</span><span class="pn">:</span> <span class="vl">10</span><span class="pn">;</span> <span class="pn">}</span> <span class="cm">/* 더 위에 */</span>
-
-<span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"back"</span><span class="br">&gt;</span><span class="tx">뒤 (z-index:1)</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-    <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"front"</span><span class="br">&gt;</span><span class="tx">앞 (z-index:10)</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
-      <div class="out"><span class="rt">브라우저 출력</span>
-        <div style="position:relative;height:100px">
-          <div style="position:absolute;left:0;top:0;width:90px;height:70px;background:#7048e8;color:#fff;z-index:1;display:flex;align-items:center;justify-content:center">z-index:1</div>
-          <div style="position:absolute;left:45px;top:25px;width:90px;height:70px;background:#27ae60;color:#fff;z-index:10;display:flex;align-items:center;justify-content:center">z-index:10</div>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:8px">값이 큰 초록 박스가 보라 박스 <b>위</b>에 겹쳐 표시된다.</p>
+      <figure class="fig">
+        <svg style="width:100%;max-width:560px;height:auto" viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="클라이언트-서버 폼 데이터 흐름">
+          <rect x="20" y="55" width="170" height="60" rx="10" fill="#efe6fb" stroke="#7048e8" stroke-width="2"/>
+          <text x="105" y="90" font-size="15" fill="#4b2bbf" text-anchor="middle" font-family="Malgun Gothic,sans-serif">클라이언트 (브라우저)</text>
+          <rect x="370" y="55" width="170" height="60" rx="10" fill="#d6f5e6" stroke="#27ae60" stroke-width="2"/>
+          <text x="455" y="90" font-size="15" fill="#1e874b" text-anchor="middle" font-family="Malgun Gothic,sans-serif">웹 서버 (JSP·PHP…)</text>
+          <line x1="195" y1="72" x2="365" y2="72" stroke="#7048e8" stroke-width="2" marker-end="url(#a)"/>
+          <text x="280" y="64" font-size="12" fill="#7048e8" text-anchor="middle" font-family="Malgun Gothic,sans-serif">폼 데이터(요청)</text>
+          <line x1="365" y1="100" x2="195" y2="100" stroke="#27ae60" stroke-width="2" marker-end="url(#b)"/>
+          <text x="280" y="118" font-size="12" fill="#1e874b" text-anchor="middle" font-family="Malgun Gothic,sans-serif">응답 웹 페이지</text>
+          <defs>
+            <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7048e8"/></marker>
+            <marker id="b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27ae60"/></marker>
+          </defs>
+        </svg>
+        <figcaption class="muted" style="font-size:.85rem">브라우저가 폼 데이터를 서버로 보내면, 서버가 처리 후 응답 페이지를 돌려준다.</figcaption>
+      </figure>
     </div>
-    <div class="lab"><div class="lbl">✏️ 실습문제</div>
-      <h4>실습 11-1. 팝업을 맨 앞으로</h4>
-      <p>다른 모든 요소 위에 항상 뜨는 팝업을 만들려면 어떤 속성을 어떻게 줘야 하는지 쓰세요.</p>
-      <details><summary>정답 보기</summary>
-<pre><span class="sel">.popup</span> <span class="pn">{</span>
-    <span class="pr">position</span><span class="pn">:</span> <span class="vl">fixed</span><span class="pn">;</span>
-    <span class="pr">z-index</span><span class="pn">:</span> <span class="vl">9999</span><span class="pn">;</span>   <span class="cm">/* 충분히 큰 값 → 항상 맨 앞 */</span>
-<span class="pn">}</span></pre>
-<pre><span class="br">&lt;</span><span class="tg">body</span><span class="br">&gt;</span>
-  <span class="br">&lt;</span><span class="tg">div</span> <span class="at">class</span>=<span class="st">"popup"</span><span class="br">&gt;</span><span class="tx">팝업 메시지</span><span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
-<span class="br">&lt;/</span><span class="tg">body</span><span class="br">&gt;</span></pre>
-        <p class="muted"><code>z-index</code>는 <code>position</code>이 <code>static</code>이 아닐 때만 동작한다.</p>
-      </details>
+    <div class="concept"><h3 class="blk">📖 &lt;form&gt; 태그 — action·method</h3>
+      <p><code>&lt;form&gt;</code> 태그는 여러 폼 요소를 감싸고, 몇 가지 속성으로 입력 자료를 서버로 넘긴다.</p>
+      <table>
+        <tr><th style="width:120px">속성</th><th>설명</th></tr>
+        <tr><td><code>action</code></td><td>폼 내용을 처리할 <b>서버 상의 경로</b>를 지정한다.</td></tr>
+        <tr><td><code>method</code></td><td><code>get</code> — 입력 내용이 주소 표시줄에 그대로 드러남 · <code>post</code> — 드러나지 않음(보안 필요 시)</td></tr>
+        <tr><td><code>name</code></td><td>폼의 이름을 지정한다.</td></tr>
+      </table>
+<pre><span class="br">&lt;</span><span class="tg">form</span> <span class="at">action</span>=<span class="st">"search.jsp"</span> <span class="at">method</span>=<span class="st">"get"</span> <span class="at">name</span>=<span class="st">"searchForm"</span><span class="br">&gt;</span>
+    <span class="cm">&lt;!-- 여기에 input, button 등 폼 요소 --&gt;</span>
+<span class="br">&lt;/</span><span class="tg">form</span><span class="br">&gt;</span></pre>
     </div>
   </section>
+
+  <!-- form module (was M3) -->
+  <section class="module" id="m12">
+    <h2><span class="num">11</span> &lt;input&gt; 태그와 type 속성</h2>
+    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
+      <li><code>type</code> 속성에 따라 달라지는 다양한 입력 요소를 만들 수 있다.</li>
+    </ul></div>
+    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
+      <p><code>&lt;input&gt;</code> 태그는 <code>type</code> 속성 값에 따라 함께 쓰는 속성과 모양이 달라진다.</p>
+      <table>
+        <tr><th style="width:140px">type</th><th>설명</th></tr>
+        <tr><td><code>text</code></td><td>한 줄짜리 텍스트 입력 상자</td></tr>
+        <tr><td><code>password</code></td><td>비밀번호 입력 필드(●●● 로 표시)</td></tr>
+        <tr><td><code>submit</code></td><td>입력 내용을 서버로 전송</td></tr>
+        <tr><td><code>reset</code></td><td>입력 내용 전부 삭제</td></tr>
+        <tr><td><code>number</code></td><td>숫자 입력 필드(<code>value·min·max·step</code>)</td></tr>
+        <tr><td><code>date</code></td><td>날짜 선택</td></tr>
+        <tr><td><code>radio</code></td><td>여러 항목 중 <b>하나만</b> 선택</td></tr>
+        <tr><td><code>checkbox</code></td><td>여러 항목 <b>다중</b> 선택</td></tr>
+        <tr><td><code>file</code></td><td>파일 첨부</td></tr>
+      </table>
+    </div>
+    <div class="ex"><div class="lbl">💡 예제 — search.html (검색 폼)</div>
+<pre><span class="br">&lt;</span><span class="tg">form</span> <span class="at">action</span>=<span class="st">"search.jsp"</span> <span class="at">method</span>=<span class="st">"get"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"keyword"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"검색"</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">form</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <div class="browser">
+          <div class="bar"><span style="font-size:12px;color:#555">검색 ✕</span><span class="url">127.0.0.1:5500/search.html</span></div>
+          <div class="body">
+            <input type="text" class="fld" style="width:220px"> <button class="btn">검색</button>
+          </div>
+        </div>
+        <p class="muted" style="margin:8px 0 0">검색어를 입력하고 <b>검색</b>을 누르면 그 값이 <code>action</code>에 지정한 <code>search.jsp</code>로 전송된다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- form module (was M4) -->
+  <section class="module" id="m13">
+    <h2><span class="num">12</span> &lt;label&gt; 태그</h2>
+    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
+      <li><code>&lt;label&gt;</code>로 입력창에 설명 텍스트를 연결할 수 있다.</li>
+    </ul></div>
+    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
+      <ul>
+        <li><code>&lt;label&gt;</code>은 입력창 옆에 붙이는 <b>'아이디'·'비밀번호'</b> 같은 설명 텍스트다.</li>
+        <li><code>for</code> 값과 입력 요소의 <code>id</code>를 같게 하면, <b>라벨을 클릭해도</b> 해당 입력창이 선택된다. 화면이 작은 기기에서 특히 유용하다.</li>
+      </ul>
+<pre><span class="br">&lt;</span><span class="tg">label</span> <span class="at">for</span>=<span class="st">"uid"</span><span class="br">&gt;</span><span class="tx">아이디</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">id</span>=<span class="st">"uid"</span> <span class="at">name</span>=<span class="st">"uid"</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <div class="browser"><div class="body">
+          <label for="uid" style="margin-right:6px">아이디</label><input type="text" id="uid" class="fld" style="width:200px">
+        </div></div>
+      </div>
+    </div>
+    <div class="ex"><div class="lbl">💡 예제 — 로그인 폼(login.html)</div>
+<pre><span class="sel">h2</span> <span class="pn">{</span> <span class="pr">margin-left</span><span class="pn">:</span> <span class="vl">30px</span><span class="pn">;</span> <span class="pn">}</span>
+<span class="sel">form</span> <span class="pn">{</span>
+    <span class="pr">width</span><span class="pn">:</span> <span class="vl">400px</span><span class="pn">;</span>
+    <span class="pr">margin-left</span><span class="pn">:</span> <span class="vl">24px</span><span class="pn">;</span>
+    <span class="pr">border</span><span class="pn">:</span> <span class="vl">1px solid #222</span><span class="pn">;</span>
+    <span class="pr">padding</span><span class="pn">:</span> <span class="vl">10px</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">ul li</span> <span class="pn">{</span>
+    <span class="pr">list-style</span><span class="pn">:</span> <span class="vl">none</span><span class="pn">;</span>
+    <span class="pr">margin</span><span class="pn">:</span> <span class="vl">16px</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">ul li label</span> <span class="pn">{</span>
+    <span class="pr">width</span><span class="pn">:</span> <span class="vl">80px</span><span class="pn">;</span>
+    <span class="pr">float</span><span class="pn">:</span> <span class="vl">left</span><span class="pn">;</span>
+<span class="pn">}</span>
+<span class="sel">ul li input</span> <span class="pn">{</span> <span class="pr">padding</span><span class="pn">:</span> <span class="vl">4px</span><span class="pn">;</span> <span class="pn">}</span></pre>
+<pre><span class="br">&lt;</span><span class="tg">h2</span><span class="br">&gt;</span><span class="tx">로그인</span><span class="br">&lt;/</span><span class="tg">h2</span><span class="br">&gt;</span>
+<span class="br">&lt;</span><span class="tg">form</span> <span class="at">action</span>=<span class="st">"login.jsp"</span> <span class="at">method</span>=<span class="st">"post"</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">ul</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">label</span> <span class="at">for</span>=<span class="st">"userid"</span><span class="br">&gt;</span><span class="tx">아이디</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"userid"</span> <span class="at">id</span>=<span class="st">"userid"</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">label</span> <span class="at">for</span>=<span class="st">"userpw"</span><span class="br">&gt;</span><span class="tx">비밀번호</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"password"</span> <span class="at">name</span>=<span class="st">"userpw"</span> <span class="at">id</span>=<span class="st">"userpw"</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">li</span><span class="br">&gt;</span>
+            <span class="br">&lt;</span><span class="tg">button</span> <span class="at">type</span>=<span class="st">"submit"</span><span class="br">&gt;</span><span class="tx">로그인</span><span class="br">&lt;/</span><span class="tg">button</span><span class="br">&gt;</span>
+        <span class="br">&lt;/</span><span class="tg">li</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">ul</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">form</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력 — 로그인 폼</span>
+        <h2 style="margin-left:30px">로그인</h2>
+        <form style="width:400px;max-width:100%;margin-left:24px;border:1px solid #222;padding:10px;box-sizing:border-box">
+          <ul style="margin:0;padding:0">
+            <li style="list-style:none;margin:16px;overflow:hidden"><label for="lg_id" style="width:80px;float:left">아이디</label><input type="text" id="lg_id" style="padding:4px"></li>
+            <li style="list-style:none;margin:16px;overflow:hidden"><label for="lg_pw" style="width:80px;float:left">비밀번호</label><input type="password" id="lg_pw" style="padding:4px"></li>
+            <li style="list-style:none;margin:16px"><button type="button" style="padding:6px 14px">로그인</button></li>
+          </ul>
+        </form>
+        <p class="muted" style="margin:10px 0 0">각 <code>&lt;label&gt;</code>을 <code>width:80px; float:left</code>로 띄워 입력창과 <b>라벨을 가로로 정렬</b>했다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- form module (was M5) -->
+  <section class="module" id="m14">
+    <h2><span class="num">13</span> radio · checkbox 버튼</h2>
+    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
+      <li>라디오 버튼과 체크박스의 차이를 구분하고 만들 수 있다.</li>
+    </ul></div>
+    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
+      <ul>
+        <li><b>radio</b> — 여러 항목 중 <b>하나만</b> 선택. 같은 그룹은 <code>name</code> 값이 <b>같아야</b> 한다.</li>
+        <li><b>checkbox</b> — 여러 항목을 <b>동시에 여러 개</b> 선택할 수 있다.</li>
+      </ul>
+<pre><span class="br">&lt;</span><span class="tg">div</span><span class="br">&gt;</span>
+    <span class="cm">&lt;!-- radio: name이 같아야 하나만 선택됨 --&gt;</span>
+    <span class="br">&lt;</span><span class="tg">label</span> <span class="at">for</span>=<span class="st">"gender"</span><span class="br">&gt;</span><span class="tx">성별: </span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">label</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"m"</span><span class="br">&gt;</span> <span class="tx">남</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">label</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"f"</span><span class="br">&gt;</span> <span class="tx">여</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
+
+  <span class="br">&lt;</span><span class="tg">div</span><span class="br">&gt;</span>
+    <span class="cm">&lt;!-- checkbox: 여러 개 선택 가능 --&gt;</span>
+    <span class="br">&lt;</span><span class="tg">label</span> <span class="at">for</span>=<span class="st">"hobby"</span><span class="br">&gt;</span><span class="tx">취미: </span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">label</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"hobby"</span> <span class="at">value</span>=<span class="st">"movie"</span><span class="br">&gt;</span> <span class="tx">영화</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">label</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"hobby"</span> <span class="at">value</span>=<span class="st">"game"</span><span class="br">&gt;</span> <span class="tx">게임</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">label</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"hobby"</span> <span class="at">value</span>=<span class="st">"game"</span><span class="br">&gt;</span> <span class="tx">독서</span><span class="br">&lt;/</span><span class="tg">label</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <div class="browser"><div class="body">
+          <div style="margin-bottom:8px"><label for="g6" style="font-weight:700">성별: </label><label><input type="radio" name="g6" value="m"> 남</label> <label><input type="radio" name="g6" value="f"> 여</label></div>
+          <div><label style="font-weight:700">취미: </label><label><input type="checkbox" name="hobby6" value="movie"> 영화</label> <label><input type="checkbox" name="hobby6" value="game"> 게임</label> <label><input type="checkbox" name="hobby6" value="game"> 독서</label></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- form module (was M7) -->
+  <section class="module" id="m16">
+    <h2><span class="num">14</span> &lt;textarea&gt; — 여러 줄 입력</h2>
+    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
+      <li>여러 줄 텍스트 입력 영역을 만들고 크기·힌트를 지정할 수 있다.</li>
+    </ul></div>
+    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
+      <ul>
+        <li><code>&lt;textarea&gt;</code> — 폼에서 <b>여러 줄</b>의 텍스트를 입력할 때 사용한다.</li>
+        <li><code>cols</code> — 한 줄에 몇 글자 · <code>rows</code> — 화면에 몇 줄 · <code>placeholder</code> — 힌트 안내문</li>
+      </ul>
+<pre><span class="br">&lt;</span><span class="tg">textarea</span> <span class="at">cols</span>=<span class="st">"30"</span> <span class="at">rows</span>=<span class="st">"4"</span> <span class="at">placeholder</span>=<span class="st">"내용을 입력하세요"</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">textarea</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력 — textarea.html</span>
+        <div class="browser"><div class="body">
+          <textarea class="fld" rows="4" style="width:100%;max-width:320px;resize:none" placeholder="내용을 입력하세요"></textarea>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- form module (was M8) -->
+  <section class="module" id="m17">
+    <h2><span class="num">15</span> &lt;select&gt; · &lt;option&gt; 목록</h2>
+    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
+      <li>드롭다운 목록을 만들고 관련 옵션을 그룹으로 묶을 수 있다.</li>
+    </ul></div>
+    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
+      <p><code>&lt;select&gt;</code>~<code>&lt;option&gt;</code>은 <b>목록(리스트) 형태</b>로 여러 데이터를 나열해 하나를 선택하게 한다.</p>
+<pre><span class="br">&lt;</span><span class="tg">select</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">option</span> <span class="at">value</span>=<span class="st">"c1"</span><span class="br">&gt;</span><span class="tx">내용1</span><span class="br">&lt;/</span><span class="tg">option</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">option</span> <span class="at">value</span>=<span class="st">"c2"</span><span class="br">&gt;</span><span class="tx">내용2</span><span class="br">&lt;/</span><span class="tg">option</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">select</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력 — select_option.html</span>
+        <div class="browser"><div class="body">
+          <select class="fld"><option>내용1</option><option>내용2</option><option>내용3</option></select>
+        </div></div>
+      </div>
+    </div>
+    <div class="concept"><h3 class="blk">📖 &lt;optgroup&gt; — 관련 옵션 그룹화</h3>
+      <p><code>&lt;optgroup&gt;</code>은 관련 있는 옵션들을 하나의 그룹으로 묶어 <code>label</code>로 제목을 붙인다.</p>
+<pre><span class="br">&lt;</span><span class="tg">select</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">optgroup</span> <span class="at">label</span>=<span class="st">"공과대학"</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">option</span><span class="br">&gt;</span><span class="tx">컴퓨터공학과</span><span class="br">&lt;/</span><span class="tg">option</span><span class="br">&gt;</span>
+        <span class="br">&lt;</span><span class="tg">option</span><span class="br">&gt;</span><span class="tx">전자공학과</span><span class="br">&lt;/</span><span class="tg">option</span><span class="br">&gt;</span>
+    <span class="br">&lt;/</span><span class="tg">optgroup</span><span class="br">&gt;</span>
+<span class="br">&lt;/</span><span class="tg">select</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력 — optgroup.html</span>
+        <div class="browser"><div class="body">
+          <select class="fld">
+            <optgroup label="공과대학"><option>컴퓨터공학과</option><option>전자공학과</option></optgroup>
+            <optgroup label="인문대학"><option>국어국문학과</option><option>영어영문학과</option></optgroup>
+          </select>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- form module (was M10) -->
+  <section class="module" id="m19">
+    <h2><span class="num">16</span> &lt;button&gt; 태그, 자바스크립트 함수</h2>
+    <div class="goal"><div class="lbl">🎯 학습목표</div><ul>
+      <li><code>&lt;button&gt;</code>과 <code>submit</code>의 차이를 이해하고 버튼을 만들 수 있다.</li>
+    </ul></div>
+    <div class="concept"><h3 class="blk">📖 개념 및 설명</h3>
+      <ul>
+        <li><code>&lt;button&gt;이름&lt;/button&gt;</code> — 기본적으로 서버 전송 기능은 <b>없고</b>, <code>onclick</code>으로 <b>자바스크립트 함수</b>와 함께 자주 쓴다.</li>
+        <li>단, <code>type="submit"</code>을 명시하면 <b>서버 페이지 전송</b>도 가능하다.</li>
+      </ul>
+<pre><span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">button</span> <span class="at">onclick</span>=<span class="st">"alert('안녕하세요~')"</span><span class="br">&gt;</span><span class="tx">클릭</span><span class="br">&lt;/</span><span class="tg">button</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span>
+
+  <span class="br">&lt;</span><span class="tg">div</span><span class="br">&gt;</span>
+    <span class="br">&lt;</span><span class="tg">button</span> <span class="at">onclick</span>=<span class="st">"window.open('https://www.naver.com')"</span><span class="br">&gt;</span><span class="tx">새 창 열기</span><span class="br">&lt;/</span><span class="tg">button</span><span class="br">&gt;</span>
+  <span class="br">&lt;/</span><span class="tg">div</span><span class="br">&gt;</span>
+
+  <span class="br">&lt;</span><span class="tg">p</span><span class="br">&gt;</span><span class="br">&lt;</span><span class="tg">button</span> <span class="at">type</span>=<span class="st">"submit"</span><span class="br">&gt;</span><span class="tx">전송</span><span class="br">&lt;/</span><span class="tg">button</span><span class="br">&gt;</span><span class="br">&lt;/</span><span class="tg">p</span><span class="br">&gt;</span></pre>
+      <div class="out"><span class="rt">브라우저 출력</span>
+        <div class="browser"><div class="body">
+          <p style="margin:0 0 8px"><button class="btn" onclick="alert('안녕하세요~')">클릭</button></p>
+          <div style="margin-bottom:8px"><button class="btn sub" onclick="window.open('https://www.naver.com')">새 창 열기</button></div>
+          <p style="margin:0"><button class="btn">전송</button></p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
 
   <footer>3강. CSS 박스 모델과 배치 · 학습 교안<br>모듈별 학습목표 · 개념 · 예제 · 실습문제 구성</footer>
 </div>
